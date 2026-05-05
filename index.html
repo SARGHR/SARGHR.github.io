@@ -1,0 +1,1839 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sarah Ghouar — Data & Dev</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+  <style>
+    /* ═══════════════════════════════════════════
+       TOKENS — DARK (défaut)
+    ═══════════════════════════════════════════ */
+    :root {
+      --ink:    #02030A;
+      --ink2:   #080B16;
+      --ink3:   #0E1220;
+      --lime:       #C8FF00;
+      --lime-txt:   #C8FF00;
+      --lime-btn-fg:#02030A;
+      --orange: #FF6B35;
+      --snow:   #EEF0F8;
+      --muted:  #9AA3BA;
+      --border: #1E2535;
+      --nav-bg: rgba(2,3,10,0.88);
+      --nav-bdr:rgba(255,255,255,0.05);
+      --hero-ovl:linear-gradient(105deg,rgba(2,3,10,0.82) 45%,rgba(2,3,10,0.3) 100%);
+      --font-display: 'Bebas Neue', sans-serif;
+      --font-body:    'DM Sans', sans-serif;
+      --font-mono:    'Space Mono', monospace;
+    }
+
+    /* ═══════════════════════════════════════════
+       TOKENS — LIGHT
+    ═══════════════════════════════════════════ */
+    html[data-theme="light"] {
+      --ink:    #F3F5FF;
+      --ink2:   #E8ECFB;
+      --ink3:   #DDE2F5;
+      --lime:       #6BA800;
+      --lime-txt:   #4E7A00;
+      --lime-btn-fg:#ffffff;
+      --snow:   #0C0E1C;
+      --muted:  #4A5270;
+      --border: #C8CFEA;
+      --nav-bg: rgba(243,245,255,0.92);
+      --nav-bdr:rgba(0,0,0,0.08);
+      --hero-ovl:linear-gradient(105deg,rgba(243,245,255,0.86) 50%,rgba(243,245,255,0.35) 100%);
+    }
+
+    /* ─ smooth theme switch ─ */
+    body, section, nav, .bento-card, .skill-cat, .lang-item,
+    .tl-body, .stat-card, .c-link, .social-btn, .about-big-num,
+    .footer-strip, .marquee-item, .skill-item, .bento-tag, .tech-badge {
+      transition: background 0.35s ease, background-color 0.35s ease,
+                  border-color 0.35s ease, color 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    /* ═══════════════════════════════════════════
+       RESET & BASE
+    ═══════════════════════════════════════════ */
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--ink);
+      color: var(--snow);
+      font-family: var(--font-body);
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    /* ═══ SCROLLBAR ═══ */
+    ::-webkit-scrollbar { width: 3px; }
+    ::-webkit-scrollbar-track { background: var(--ink); }
+    ::-webkit-scrollbar-thumb { background: var(--lime); }
+
+    /* ═══════════════════════════════════════════
+       NAV
+    ═══════════════════════════════════════════ */
+    nav {
+      position: fixed; top:0; left:0; right:0; z-index: 500;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.2rem 3rem;
+      background: var(--nav-bg);
+      border-bottom: 1px solid var(--nav-bdr);
+      backdrop-filter: blur(16px);
+    }
+
+    .nav-logo {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--lime);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .nav-right { display:flex; align-items:center; gap:2rem; }
+
+    nav ul { list-style:none; display:flex; gap:2.5rem; }
+
+    nav a {
+      text-decoration:none;
+      font-size: 0.78rem;
+      color: var(--snow);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-family: var(--font-mono);
+      position: relative;
+      opacity: 0.6;
+    }
+
+    nav a::after {
+      content:'';
+      position: absolute;
+      bottom:-3px; left:0; right:0;
+      height:1px;
+      background: var(--lime);
+      transform: scaleX(0);
+      transition: transform 0.3s;
+    }
+
+    nav a:hover { opacity: 1; }
+    nav a:hover::after { transform: scaleX(1); }
+
+    /* ─ THEME TOGGLE BUTTON ─ */
+    #theme-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--ink3);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.35rem 0.9rem;
+      cursor: pointer;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+    }
+
+    #theme-toggle:hover { border-color: var(--lime); color: var(--lime); }
+
+    /* the sliding pill track */
+    .toggle-track {
+      position: relative;
+      width: 36px; height: 18px;
+      background: var(--border);
+      border-radius: 999px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .toggle-thumb {
+      position: absolute;
+      top: 2px; left: 2px;
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: var(--lime);
+      transition: transform 0.3s cubic-bezier(.16,1,.3,1);
+    }
+
+    html[data-theme="light"] .toggle-thumb { transform: translateX(18px); }
+
+    .toggle-icon { font-size: 0.85rem; line-height:1; }
+
+    /* ═══════════════════════════════════════════
+       HERO
+    ═══════════════════════════════════════════ */
+    #hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 0 6rem;
+      overflow: hidden;
+    }
+
+    #neural-canvas {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    /* dark gradient overlay so text pops */
+    #hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--hero-ovl);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      gap: 3rem;
+    }
+
+    .hero-left { flex: 1; max-width: 640px; }
+
+    .hero-greeting {
+      font-family: var(--font-mono);
+      font-size: 1rem;
+      color: var(--lime);
+      letter-spacing: 0.08em;
+      margin-bottom: 0.6rem;
+      animation: slideUp 0.7s cubic-bezier(.16,1,.3,1) both;
+    }
+
+    .hero-name {
+      font-family: var(--font-display);
+      font-size: clamp(3.5rem, 8vw, 7rem);
+      line-height: 0.95;
+      letter-spacing: 0.01em;
+      margin-bottom: 1rem;
+      animation: slideUp 0.7s 0.1s cubic-bezier(.16,1,.3,1) both;
+    }
+
+    .hero-name .lime { color: var(--lime); }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--snow);
+      line-height: 1.7;
+      margin-bottom: 0.5rem;
+      animation: slideUp 0.7s 0.18s cubic-bezier(.16,1,.3,1) both;
+    }
+
+    .hero-desc strong { font-weight: 500; }
+
+    .hero-subdesc {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      margin-bottom: 2rem;
+      animation: slideUp 0.7s 0.24s cubic-bezier(.16,1,.3,1) both;
+    }
+
+    .hero-social {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      animation: slideUp 0.7s 0.32s cubic-bezier(.16,1,.3,1) both;
+    }
+
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.55rem 1.1rem;
+      border-radius: 999px;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      background: rgba(14,18,32,0.7);
+      transition: border-color 0.25s, color 0.25s, background 0.25s, transform 0.2s;
+    }
+
+    .social-btn:hover {
+      border-color: var(--lime);
+      color: var(--lime);
+      background: rgba(200,255,0,0.07);
+      transform: translateY(-2px);
+    }
+
+    .social-btn.primary {
+      background: var(--lime);
+      color: var(--lime-btn-fg);
+      border-color: var(--lime);
+      font-weight: 700;
+    }
+
+    .social-btn.primary:hover {
+      opacity: 0.88;
+      color: var(--lime-btn-fg);
+    }
+
+    .social-icon { font-size: 0.9rem; }
+
+    /* status pill */
+    .hero-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--lime);
+      letter-spacing: 0.08em;
+      margin-bottom: 1.4rem;
+      animation: slideUp 0.7s 0.05s cubic-bezier(.16,1,.3,1) both;
+    }
+
+    .status-dot {
+      display: inline-block;
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--lime);
+      flex-shrink: 0;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%,100% { box-shadow: 0 0 0 0 rgba(200,255,0,0.5); }
+      50% { box-shadow: 0 0 0 6px rgba(200,255,0,0); }
+    }
+
+    /* photo */
+    .hero-photo {
+      flex-shrink: 0;
+      position: relative;
+      z-index: 2;
+      animation: fadeIn 1s 0.4s both;
+    }
+
+    .photo-ring {
+      width: 280px; height: 280px;
+      border-radius: 50%;
+      border: 2px solid var(--lime);
+      padding: 5px;
+      position: relative;
+    }
+
+    .photo-ring::before {
+      content: '';
+      position: absolute;
+      inset: -12px;
+      border-radius: 50%;
+      border: 1px dashed rgba(200,255,0,0.3);
+      animation: spinSlow 18s linear infinite;
+    }
+
+    @keyframes spinSlow { to { transform: rotate(360deg); } }
+
+    .photo-inner {
+      width: 100%; height: 100%;
+      border-radius: 50%;
+      overflow: hidden;
+      background: var(--ink3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .photo-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    /* placeholder when no photo */
+    .photo-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--muted);
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-align: center;
+    }
+
+    .photo-placeholder-icon { font-size: 2.5rem; opacity: 0.4; }
+
+    /* scroll hint */
+    .hero-scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--muted);
+      letter-spacing: 0.15em;
+      animation: bounce 2s ease-in-out infinite;
+    }
+
+    .scroll-line {
+      width: 1px; height: 36px;
+      background: linear-gradient(to bottom, var(--lime), transparent);
+    }
+
+    @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(6px)} }
+    @keyframes slideUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:none} }
+    @keyframes fadeIn  { from{opacity:0} to{opacity:1} }
+
+    /* ═══════════════════════════════════════════
+       SHARED SECTION
+    ═══════════════════════════════════════════ */
+    section { padding: 7rem 3rem; position: relative; }
+
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--lime);
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+      display: flex; align-items: center; gap: 1rem;
+    }
+
+    .section-label::before {
+      content: '';
+      display: inline-block;
+      width: 30px; height: 1px;
+      background: var(--lime);
+    }
+
+    h2 {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      line-height: 0.95;
+      letter-spacing: 0.01em;
+      margin-bottom: 4rem;
+    }
+
+    h2 .accent { color: var(--lime); }
+    h2 .dim { -webkit-text-stroke: 1px var(--muted); color: transparent; }
+
+    /* ═══════════════════════════════════════════
+       ABOUT
+    ═══════════════════════════════════════════ */
+    #about { background: var(--ink2); }
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0 5rem;
+      align-items: start;
+    }
+
+    .about-big-num {
+      font-family: var(--font-display);
+      font-size: clamp(8rem, 15vw, 14rem);
+      line-height: 1;
+      -webkit-text-stroke: 1px var(--border);
+      color: transparent;
+      user-select: none;
+      position: relative;
+      top: -1rem;
+    }
+    .about-content p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.9;
+      margin-bottom: 1.4rem;
+    }
+
+    .about-content p strong { color: var(--snow); font-weight: 500; }
+    .about-content p em { font-style: normal; color: var(--lime); }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 3.5rem;
+    }
+
+    .stat {
+      border-top: 1px solid var(--border);
+      padding-top: 1.2rem;
+    }
+
+    .stat-n {
+      font-family: var(--font-display);
+      font-size: 3.5rem;
+      line-height: 1;
+      color: var(--lime);
+    }
+
+    .stat-l {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-top: 0.3rem;
+    }
+
+    /* ═══════════════════════════════════════════
+       SKILLS
+    ═══════════════════════════════════════════ */
+    #skills { background: var(--ink); overflow: hidden; }
+
+    .marquee-wrap {
+      overflow: hidden;
+      margin: 0 -3rem 4rem;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 0;
+    }
+
+    .marquee-track {
+      display: flex;
+      gap: 0;
+      animation: marquee 28s linear infinite;
+      white-space: nowrap;
+    }
+
+    .marquee-track:hover { animation-play-state: paused; }
+
+    @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+    .marquee-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0 2.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      border-right: 1px solid var(--border);
+      transition: color 0.2s;
+    }
+
+    .marquee-item .dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--lime);
+      opacity: 0.4;
+    }
+
+    .skills-cats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .skill-cat {
+      background: var(--ink2);
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s;
+    }
+
+    .skill-cat::after {
+      content: attr(data-icon);
+      position: absolute;
+      bottom: -10px; right: -5px;
+      font-size: 5rem;
+      opacity: 0.04;
+      pointer-events: none;
+      transition: opacity 0.3s, transform 0.3s;
+    }
+
+    .skill-cat:hover { background: var(--ink3); }
+    .skill-cat:hover::after { opacity: 0.07; transform: scale(1.1) rotate(-5deg); }
+
+    .skill-cat-label {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--lime);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+
+    .skill-list { display: flex; flex-direction: column; gap: 0.5rem; }
+
+    .skill-item {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-size: 0.9rem;
+      color: var(--snow);
+      padding: 0.45rem 0;
+      border-bottom: 1px solid var(--border);
+      transition: color 0.2s;
+    }
+
+    .skill-item:last-child { border-bottom: none; }
+    .skill-item:hover { color: var(--lime); }
+
+    .skill-logo {
+      width: 20px;
+      height: 20px;
+      object-fit: contain;
+      flex-shrink: 0;
+      filter: none;
+    }
+
+    .skill-logo-letter {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px; height: 20px;
+      background: var(--lime);
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+
+    /* project illustrations */
+    .proj-illustration {
+      position: absolute;
+      bottom: 1.2rem;
+      right: 1.2rem;
+      width: 130px;
+      opacity: 0.55;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+
+    .b1 .proj-illustration { width: 180px; bottom: 2rem; }
+    .b6 .proj-illustration { position: relative; width: 200px; opacity: 0.6; bottom: auto; right: auto; }
+
+    .bento-card:hover .proj-illustration { opacity: 0.85; }
+
+    /* ═══════════════════════════════════════════
+       PROJECTS — BENTO
+    ═══════════════════════════════════════════ */
+    #projects { background: var(--ink2); }
+
+    .bento {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: auto;
+      gap: 12px;
+    }
+
+    .bento-card {
+      background: var(--ink3);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: border-color 0.35s, transform 0.35s;
+      min-height: 220px;
+    }
+
+    .bento-card:hover {
+      border-color: var(--lime);
+      transform: translateY(-4px);
+    }
+
+    .bento-card::before {
+      content:'';
+      position: absolute;
+      inset:0;
+      background: radial-gradient(circle at 0% 0%, rgba(200,255,0,0.05), transparent 60%);
+      opacity:0;
+      transition: opacity 0.4s;
+    }
+
+    .bento-card:hover::before { opacity:1; }
+
+    /* bento positions */
+    .b1 { grid-column: span 7; }
+    .b2 { grid-column: span 5; }
+    .b3 { grid-column: span 4; }
+    .b4 { grid-column: span 4; }
+    .b5 { grid-column: span 4; }
+    .b6 { grid-column: span 12; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; min-height: 160px; }
+
+    .bento-idx {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--lime);
+      opacity: 0.5;
+      letter-spacing: 0.1em;
+    }
+
+    .bento-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+      line-height: 1.1;
+      letter-spacing: 0.02em;
+      margin: 0.8rem 0 0.6rem;
+    }
+
+    .b1 .bento-title { font-size: clamp(1.8rem, 3.5vw, 2.6rem); }
+
+    .bento-desc {
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.7;
+      flex: 1;
+      margin: 0.5rem 0 1.2rem;
+    }
+
+    .bento-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
+    .bento-tag {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--lime);
+      border: 1px solid rgba(200,255,0,0.3);
+      padding: 0.2rem 0.55rem;
+      border-radius: 2px;
+      letter-spacing: 0.06em;
+    }
+
+    .bento-arrow {
+      position: absolute;
+      top: 1.5rem; right: 1.5rem;
+      width: 32px; height: 32px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.75rem;
+      color: var(--muted);
+      transition: border-color 0.3s, color 0.3s, transform 0.3s;
+    }
+
+    .bento-card:hover .bento-arrow {
+      border-color: var(--lime);
+      color: var(--lime);
+      transform: rotate(45deg);
+    }
+
+    .b6-left .b6-tag {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--lime);
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+    }
+
+    /* ═══════════════════════════════════════════
+       PARCOURS
+    ═══════════════════════════════════════════ */
+    #parcours { background: var(--ink); }
+
+    .parcours-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 5rem;
+    }
+
+    .parcours-col-title {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--lime);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 2.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .parcours-col-title::after {
+      content:'';
+      flex:1;
+      height:1px;
+      background: var(--border);
+    }
+
+    .tl-item {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 0 1.5rem;
+      margin-bottom: 2.5rem;
+      align-items: start;
+    }
+
+    .tl-date {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      padding-top: 0.25rem;
+      text-align: right;
+    }
+
+    .tl-body {
+      border-left: 1px solid var(--border);
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    .tl-body::before {
+      content:'';
+      position: absolute;
+      left: -4px; top: 7px;
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--lime);
+      box-shadow: 0 0 8px var(--lime);
+    }
+
+    .tl-role {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      letter-spacing: 0.04em;
+      line-height: 1.2;
+    }
+
+    .tl-org { color: var(--muted); font-size: 0.85rem; margin: 0.2rem 0 0.4rem; }
+
+    .tl-detail {
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    /* ═══════════════════════════════════════════
+       LANGUES
+    ═══════════════════════════════════════════ */
+    #langues { background: var(--ink2); }
+
+    .lang-row {
+      display: flex;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .lang-item {
+      flex: 1;
+      background: var(--ink3);
+      padding: 2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      transition: background 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .lang-item:hover { background: var(--ink); }
+
+    .lang-emoji { font-size: 2rem; }
+
+    .lang-name {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      letter-spacing: 0.05em;
+    }
+
+    .lang-lvl {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--lime);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .lang-bar {
+      height: 2px;
+      background: var(--border);
+      border-radius: 1px;
+      margin-top: 0.5rem;
+      overflow: hidden;
+    }
+
+    .lang-fill {
+      height: 100%;
+      background: var(--lime);
+      border-radius: 1px;
+      transform-origin: left;
+      transform: scaleX(0);
+      transition: transform 1s cubic-bezier(.16,1,.3,1);
+    }
+
+    .lang-fill.animate { transform: scaleX(1); }
+
+    /* ═══════════════════════════════════════════
+       CONTACT
+    ═══════════════════════════════════════════ */
+    #contact {
+      background: var(--ink);
+      padding-bottom: 0;
+    }
+
+    .contact-giant {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 6vw, 6rem);
+      letter-spacing: -0.01em;
+      line-height: 1;
+      margin-bottom: 4rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .contact-giant a {
+      color: var(--lime);
+      text-decoration: none;
+      border-bottom: 3px solid var(--lime);
+      transition: color 0.2s;
+    }
+
+    .contact-giant a:hover { color: var(--snow); }
+
+    .contact-links-row {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 6rem;
+      flex-wrap: wrap;
+    }
+
+    .c-link {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.5rem;
+      color: var(--muted);
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      letter-spacing: 0.06em;
+      transition: border-color 0.3s, color 0.3s, background 0.3s;
+    }
+
+    .c-link:hover {
+      border-color: var(--lime);
+      color: var(--lime);
+      background: rgba(200,255,0,0.04);
+    }
+
+    .c-link-icon { font-size: 1.1rem; }
+
+    /* FOOTER STRIP */
+    .footer-strip {
+      background: var(--lime);
+      color: var(--lime-btn-fg);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 3rem;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+    }
+
+    /* ═══════════════════════════════════════════
+       REVEAL
+    ═══════════════════════════════════════════ */
+    .reveal {
+      opacity:0;
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(.16,1,.3,1), transform 0.8s cubic-bezier(.16,1,.3,1);
+    }
+
+    .reveal.visible { opacity:1; transform:none; }
+    .reveal.d1 { transition-delay: 0.1s; }
+    .reveal.d2 { transition-delay: 0.2s; }
+    .reveal.d3 { transition-delay: 0.3s; }
+
+    /* ═══════════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════════ */
+    @media (max-width: 900px) {
+      nav { padding: 1.2rem 1.5rem; }
+      nav ul { display: none; }
+      section { padding: 5rem 1.5rem; }
+      #hero { padding: 0 1.5rem; }
+      .hero-inner { flex-direction: column-reverse; justify-content: center; gap: 2rem; padding-top: 6rem; }
+      .hero-left { text-align: center; }
+      .hero-social { justify-content: center; }
+      .hero-status { justify-content: center; }
+      .photo-ring { width: 180px; height: 180px; }
+      .about-layout { grid-template-columns: 1fr; }
+      .about-big-num { display: none; }
+      .about-stats { grid-template-columns: repeat(2, 1fr); }
+      .skills-cats { grid-template-columns: 1fr 1fr; }
+      .bento { grid-template-columns: 1fr 1fr; }
+      .b1,.b2,.b3,.b4,.b5 { grid-column: span 1; }
+      .b6 { grid-column: span 2; grid-template-columns: 1fr; }
+      .parcours-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .lang-row { flex-wrap: wrap; }
+      .lang-item { min-width: 45%; }
+      .contact-giant { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">SG.DEV</div>
+  <div class="nav-right">
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Work</a></li>
+      <li><a href="#parcours">Journey</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button id="theme-toggle" aria-label="Changer le thème">
+      <span class="toggle-icon" id="toggle-icon">🌙</span>
+      <div class="toggle-track"><div class="toggle-thumb"></div></div>
+      <span class="toggle-icon" id="toggle-icon2">☀️</span>
+    </button>
+  </div>
+</nav>
+
+<!-- ════ HERO ════ -->
+<section id="hero">
+  <canvas id="neural-canvas"></canvas>
+
+  <div class="hero-inner">
+
+    <!-- LEFT CONTENT -->
+    <div class="hero-left">
+
+      <div class="hero-greeting">Salut, je suis —</div>
+
+      <div class="hero-name">
+        Sarah<br>
+        <span class="lime">Ghouar</span>
+      </div>
+
+      <p class="hero-desc">
+        <strong>Étudiante en Informatique.</strong>
+        Passionnée par la data, le machine learning et la création numérique.
+        Je construis des solutions de bout en bout.
+      </p>
+
+      <p class="hero-subdesc">
+        L3 Informatique · Université Lumière Lyon 2 · Lyon, France
+      </p>
+
+      <div class="hero-social">
+        <a href="https://www.linkedin.com/in/sarah-ghouar-06379a2a4/" target="_blank" class="social-btn primary">
+          <span class="social-icon">🔗</span> LinkedIn
+        </a>
+        <a href="mailto:ghouarsarah@gmail.com" class="social-btn">
+          <span class="social-icon">✉️</span> Email
+        </a>
+        <a href="#projects" class="social-btn">
+          <span class="social-icon">💻</span> Mes projets
+        </a>
+        <a href="#contact" class="social-btn">
+          <span class="social-icon">📍</span> Bron, Rhône-Alpes
+        </a>
+      </div>
+
+    </div>
+
+    <!-- RIGHT PHOTO -->
+    <div class="hero-photo">
+      <div class="photo-ring">
+        <div class="photo-inner">
+         
+            <img src="image.png" alt="Sarah Ghouar" />
+           
+          
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="hero-scroll-hint">
+    <span>SCROLL</span>
+    <div class="scroll-line"></div>
+  </div>
+
+</section>
+
+<!-- ════ ABOUT ════ -->
+<section id="about">
+  <div class="section-label">01 — À PROPOS</div>
+
+  <div class="about-layout reveal">
+    <div class="about-big-num">01</div>
+    <div class="about-content">
+      <h2>QUI<br><span class="accent">JE SUIS</span></h2>
+      <p>Je suis <strong>Sarah Ghouar</strong>, étudiante en 3ème année de Licence Informatique à l'Université Lumière Lyon 2. Je construis des solutions techniques de bout en bout — de l'analyse de données en Python à la conception d'interfaces avec Figma.</p>
+      <p>Ma curiosité me pousse à comprendre les problèmes en profondeur avant de les résoudre. J'aime autant plonger dans un dataset que dessiner une interface claire et intuitive.</p>
+
+      <div class="about-stats">
+        <div class="stat">
+          <div class="stat-n" data-target="6">0</div>
+          <div class="stat-l">Projets<br>académiques</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n" data-target="10">0</div>
+          <div class="stat-l">Technologies<br>maîtrisées</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n" data-target="3">0</div>
+          <div class="stat-l">Années de<br>formation</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n" data-target="3">0</div>
+          <div class="stat-l">Langues<br>parlées</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ SKILLS ════ -->
+<section id="skills">
+  <div class="section-label">02 — COMPÉTENCES</div>
+  <h2 class="reveal">MON<br><span class="accent">STACK</span></h2>
+
+  <!-- Marquee -->
+  <div class="marquee-wrap">
+    <div class="marquee-track" id="marquee">
+      <span class="marquee-item"><span class="dot"></span>Python</span>
+      <span class="marquee-item"><span class="dot"></span>SQL</span>
+      <span class="marquee-item"><span class="dot"></span>Machine Learning</span>
+      <span class="marquee-item"><span class="dot"></span>Java</span>
+      <span class="marquee-item"><span class="dot"></span>C / C++</span>
+      <span class="marquee-item"><span class="dot"></span>PostgreSQL</span>
+      <span class="marquee-item"><span class="dot"></span>HTML / CSS</span>
+      <span class="marquee-item"><span class="dot"></span>JavaScript</span>
+      <span class="marquee-item"><span class="dot"></span>PHP</span>
+      <span class="marquee-item"><span class="dot"></span>Figma</span>
+      <span class="marquee-item"><span class="dot"></span>Git / GitHub</span>
+      <span class="marquee-item"><span class="dot"></span>Linux</span>
+      <span class="marquee-item"><span class="dot"></span>R</span>
+      <span class="marquee-item"><span class="dot"></span>Visualisation</span>
+      <span class="marquee-item"><span class="dot"></span>Python</span>
+      <span class="marquee-item"><span class="dot"></span>SQL</span>
+      <span class="marquee-item"><span class="dot"></span>Machine Learning</span>
+      <span class="marquee-item"><span class="dot"></span>Java</span>
+      <span class="marquee-item"><span class="dot"></span>C / C++</span>
+      <span class="marquee-item"><span class="dot"></span>PostgreSQL</span>
+      <span class="marquee-item"><span class="dot"></span>HTML / CSS</span>
+      <span class="marquee-item"><span class="dot"></span>JavaScript</span>
+      <span class="marquee-item"><span class="dot"></span>PHP</span>
+      <span class="marquee-item"><span class="dot"></span>Figma</span>
+      <span class="marquee-item"><span class="dot"></span>Git / GitHub</span>
+      <span class="marquee-item"><span class="dot"></span>Linux</span>
+      <span class="marquee-item"><span class="dot"></span>R</span>
+      <span class="marquee-item"><span class="dot"></span>Visualisation</span>
+    </div>
+  </div>
+
+  <div class="skills-cats reveal">
+    <div class="skill-cat" data-icon="🔷">
+      <div class="skill-cat-label">Programmation</div>
+      <div class="skill-list">
+        <div class="skill-item">
+          <img class="skill-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python"/>
+          Python
+        </div>
+        <div class="skill-item">
+          <img class="skill-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azuresqldatabase/azuresqldatabase-original.svg" alt="SQL"/>
+          SQL
+        </div>
+        <div class="skill-item">
+          <img class="skill-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" alt="Java"/>
+          Java
+        </div>
+        <div class="skill-item">
+          <img class="skill-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/r/r-original.svg" alt="R"/>
+          R
+        </div>
+        <div class="skill-item">
+          <img class="skill-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" alt="C++"/>
+          C / C++
+        </div>
+        <div class="skill-item">
+          <span class="skill-logo skill-logo-letter">P</span>
+          Pascal
+        </div>
+      </div>
+    </div>
+    <div class="skill-cat" data-icon="🌐">
+      <div class="skill-cat-label">Développement Web</div>
+      <div class="skill-list">
+        <div class="skill-item">
+          <img class="skill-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML"/>
+          HTML / CSS
+        </div>
+        <div class="skill-item">
+          <img class="skill-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JS"/>
+          JavaScript
+        </div>
+        <div class="skill-item">
+          <img class="skill-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" alt="PHP"/>
+          PHP
+        </div>
+      </div>
+    </div>
+    <div class="skill-cat" data-icon="📊">
+      <div class="skill-cat-label">Data Science</div>
+      <div class="skill-list">
+        <div class="skill-item">
+          <img class="skill-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scikitlearn/scikitlearn-original.svg" alt="ML"/>
+          Machine Learning
+        </div>
+        <div class="skill-item">
+          <img class="skill-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matplotlib/matplotlib-original.svg" alt="Viz"/>
+          Visualisation
+        </div>
+        <div class="skill-item">
+          <img class="skill-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg" alt="Stats"/>
+          Statistiques
+        </div>
+        <div class="skill-item">
+          <img class="skill-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg" alt="Pandas"/>
+          Data Processing
+        </div>
+      </div>
+    </div>
+    <div class="skill-cat" data-icon="🛠">
+      <div class="skill-cat-label">Outils</div>
+      <div class="skill-list">
+        <div class="skill-item">
+          <img class="skill-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="Git"/>
+          Git / GitHub
+        </div>
+        <div class="skill-item">
+          <img class="skill-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" alt="PostgreSQL"/>
+          PostgreSQL
+        </div>
+        <div class="skill-item">
+          <img class="skill-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" alt="Figma"/>
+          Figma
+        </div>
+        <div class="skill-item">
+          <img class="skill-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg" alt="Linux"/>
+          Linux
+        </div>
+        <div class="skill-item">
+          <img class="skill-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/windows8/windows8-original.svg" alt="Excel"/>
+          Excel
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ PROJECTS ════ -->
+<section id="projects">
+  <div class="section-label">03 — PROJETS</div>
+  <h2 class="reveal">CE QUE J'AI<br><span class="accent">CONSTRUIT</span></h2>
+
+  <div class="bento reveal">
+
+    <!-- BIG CARD 1 — Mobilité urbaine -->
+    <div class="bento-card b1">
+      <div class="bento-arrow">↗</div>
+      <!-- Robot: city transport bot -->
+      <div class="proj-illustration">
+        <svg viewBox="0 0 180 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- bus body -->
+          <rect x="20" y="50" width="100" height="55" rx="8" fill="#1a2235" stroke="#C8FF00" stroke-width="1.5"/>
+          <!-- windows -->
+          <rect x="30" y="60" width="20" height="14" rx="3" fill="#C8FF00" opacity="0.3"/>
+          <rect x="58" y="60" width="20" height="14" rx="3" fill="#C8FF00" opacity="0.3"/>
+          <rect x="86" y="60" width="20" height="14" rx="3" fill="#C8FF00" opacity="0.3"/>
+          <!-- wheels -->
+          <circle cx="45" cy="107" r="9" fill="#0E1220" stroke="#C8FF00" stroke-width="1.5"/>
+          <circle cx="45" cy="107" r="3" fill="#C8FF00" opacity="0.5"/>
+          <circle cx="95" cy="107" r="9" fill="#0E1220" stroke="#C8FF00" stroke-width="1.5"/>
+          <circle cx="95" cy="107" r="3" fill="#C8FF00" opacity="0.5"/>
+          <!-- robot head on bus -->
+          <rect x="55" y="28" width="30" height="24" rx="5" fill="#1a2235" stroke="#C8FF00" stroke-width="1.5"/>
+          <circle cx="63" cy="38" r="4" fill="#C8FF00" opacity="0.8"/>
+          <circle cx="77" cy="38" r="4" fill="#C8FF00" opacity="0.8"/>
+          <rect x="62" y="46" width="16" height="3" rx="1.5" fill="#C8FF00" opacity="0.4"/>
+          <!-- antenna -->
+          <line x1="70" y1="28" x2="70" y2="18" stroke="#C8FF00" stroke-width="1.5"/>
+          <circle cx="70" cy="15" r="3" fill="#C8FF00"/>
+          <!-- signal waves -->
+          <path d="M130 55 Q145 45 160 55" stroke="#C8FF00" stroke-width="1.2" opacity="0.5" fill="none"/>
+          <path d="M135 48 Q150 35 165 48" stroke="#C8FF00" stroke-width="1" opacity="0.3" fill="none"/>
+          <!-- map pin -->
+          <circle cx="155" cy="80" r="8" fill="#C8FF00" opacity="0.15" stroke="#C8FF00" stroke-width="1"/>
+          <circle cx="155" cy="80" r="3" fill="#C8FF00" opacity="0.6"/>
+          <line x1="155" y1="88" x2="155" y2="95" stroke="#C8FF00" stroke-width="1.2" opacity="0.5"/>
+        </svg>
+      </div>
+      <div>
+        <div class="bento-idx">01 · FEATURED</div>
+        <div class="bento-title">Application de mobilité urbaine — Lyon</div>
+        <p class="bento-desc">Analyse de données de transport et création d'une interface permettant aux usagers de trouver les meilleures options de mobilité dans la métropole lyonnaise.</p>
+      </div>
+      <div class="bento-tags">
+        <span class="bento-tag">Python</span>
+        <span class="bento-tag">Data Analysis</span>
+        <span class="bento-tag">UI/UX</span>
+        <span class="bento-tag">Visualisation</span>
+      </div>
+    </div>
+
+    <!-- CARD 2 — E-commerce -->
+    <div class="bento-card b2">
+      <div class="bento-arrow">↗</div>
+      <div class="proj-illustration">
+        <svg viewBox="0 0 160 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- robot body -->
+          <rect x="55" y="50" width="50" height="45" rx="6" fill="#1a2235" stroke="#C8FF00" stroke-width="1.5"/>
+          <!-- robot head -->
+          <rect x="62" y="22" width="36" height="30" rx="6" fill="#1a2235" stroke="#C8FF00" stroke-width="1.5"/>
+          <!-- eyes -->
+          <rect x="68" y="30" width="8" height="6" rx="2" fill="#C8FF00" opacity="0.9"/>
+          <rect x="84" y="30" width="8" height="6" rx="2" fill="#C8FF00" opacity="0.9"/>
+          <!-- mouth -->
+          <path d="M72 44 Q80 50 88 44" stroke="#C8FF00" stroke-width="1.5" fill="none" opacity="0.6"/>
+          <!-- antenna -->
+          <line x1="80" y1="22" x2="80" y2="12" stroke="#C8FF00" stroke-width="1.5"/>
+          <circle cx="80" cy="9" r="3" fill="#C8FF00"/>
+          <!-- cart icon on body -->
+          <path d="M65 67 L68 67 L71 78 L89 78 L92 70 L71 70" stroke="#C8FF00" stroke-width="1.3" fill="none" opacity="0.7"/>
+          <circle cx="74" cy="81" r="2" fill="#C8FF00" opacity="0.7"/>
+          <circle cx="87" cy="81" r="2" fill="#C8FF00" opacity="0.7"/>
+          <!-- arms -->
+          <rect x="35" y="52" width="20" height="8" rx="4" fill="#1a2235" stroke="#C8FF00" stroke-width="1.2"/>
+          <rect x="105" y="52" width="20" height="8" rx="4" fill="#1a2235" stroke="#C8FF00" stroke-width="1.2"/>
+          <!-- package in right arm -->
+          <rect x="108" y="44" width="14" height="12" rx="2" fill="#C8FF00" opacity="0.2" stroke="#C8FF00" stroke-width="1"/>
+          <line x1="115" y1="44" x2="115" y2="56" stroke="#C8FF00" stroke-width="0.8" opacity="0.5"/>
+          <!-- legs -->
+          <rect x="62" y="95" width="12" height="16" rx="3" fill="#1a2235" stroke="#C8FF00" stroke-width="1.2"/>
+          <rect x="86" y="95" width="12" height="16" rx="3" fill="#1a2235" stroke="#C8FF00" stroke-width="1.2"/>
+        </svg>
+      </div>
+      <div>
+        <div class="bento-idx">02</div>
+        <div class="bento-title">Boutique E-commerce</div>
+        <p class="bento-desc">Site e-commerce complet avec catalogue, panier, commandes et panneau d'administration — développé de A à Z.</p>
+      </div>
+      <div class="bento-tags">
+        <span class="bento-tag">PHP</span>
+        <span class="bento-tag">JS</span>
+        <span class="bento-tag">SQL</span>
+      </div>
+    </div>
+
+    <!-- CARD 3 — UI/UX Table induction -->
+    <div class="bento-card b3">
+      <div class="bento-arrow">↗</div>
+      <div class="proj-illustration">
+        <svg viewBox="0 0 160 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- smart cooktop surface -->
+          <rect x="25" y="60" width="110" height="35" rx="6" fill="#1a2235" stroke="#C8FF00" stroke-width="1.5"/>
+          <!-- induction zones -->
+          <circle cx="55" cy="77" r="14" stroke="#C8FF00" stroke-width="1" opacity="0.4" stroke-dasharray="3 2"/>
+          <circle cx="55" cy="77" r="8" stroke="#C8FF00" stroke-width="1.2" opacity="0.6"/>
+          <circle cx="105" cy="77" r="14" stroke="#C8FF00" stroke-width="1" opacity="0.4" stroke-dasharray="3 2"/>
+          <circle cx="105" cy="77" r="8" stroke="#C8FF00" stroke-width="1.2" opacity="0.6"/>
+          <!-- touch panel -->
+          <rect x="68" y="67" width="24" height="20" rx="3" fill="#C8FF00" opacity="0.1" stroke="#C8FF00" stroke-width="0.8"/>
+          <rect x="71" y="70" width="6" height="4" rx="1" fill="#C8FF00" opacity="0.4"/>
+          <rect x="79" y="70" width="6" height="4" rx="1" fill="#C8FF00" opacity="0.4"/>
+          <rect x="71" y="77" width="14" height="2" rx="1" fill="#C8FF00" opacity="0.3"/>
+          <!-- robot designer floating above -->
+          <rect x="65" y="18" width="30" height="24" rx="5" fill="#1a2235" stroke="#C8FF00" stroke-width="1.5"/>
+          <circle cx="74" cy="27" r="3.5" fill="#C8FF00" opacity="0.8"/>
+          <circle cx="86" cy="27" r="3.5" fill="#C8FF00" opacity="0.8"/>
+          <path d="M73 37 Q80 42 87 37" stroke="#C8FF00" stroke-width="1.2" fill="none" opacity="0.6"/>
+          <line x1="80" y1="18" x2="80" y2="10" stroke="#C8FF00" stroke-width="1.3"/>
+          <circle cx="80" cy="7" r="2.5" fill="#C8FF00"/>
+          <!-- pencil arm -->
+          <line x1="95" y1="30" x2="110" y2="50" stroke="#C8FF00" stroke-width="1.5" opacity="0.7"/>
+          <polygon points="110,50 114,46 116,54" fill="#C8FF00" opacity="0.6"/>
+        </svg>
+      </div>
+      <div>
+        <div class="bento-idx">03</div>
+        <div class="bento-title">Conception UI/UX — Table à induction</div>
+        <p class="bento-desc">Design complet d'une interface pour appareil connecté : wireframes, prototypes, système de design.</p>
+      </div>
+      <div class="bento-tags">
+        <span class="bento-tag">Figma</span>
+        <span class="bento-tag">Prototypage</span>
+      </div>
+    </div>
+
+    <!-- CARD 4 — BDD Machines virtuelles -->
+    <div class="bento-card b4">
+      <div class="bento-arrow">↗</div>
+      <div class="proj-illustration">
+        <svg viewBox="0 0 160 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- server rack -->
+          <rect x="30" y="20" width="60" height="80" rx="4" fill="#1a2235" stroke="#C8FF00" stroke-width="1.5"/>
+          <!-- server units -->
+          <rect x="35" y="28" width="50" height="12" rx="2" fill="#0E1220" stroke="#C8FF00" stroke-width="0.8"/>
+          <circle cx="78" cy="34" r="2.5" fill="#C8FF00" opacity="0.9"/>
+          <rect x="38" y="31" width="18" height="6" rx="1" fill="#C8FF00" opacity="0.15"/>
+          <rect x="35" y="45" width="50" height="12" rx="2" fill="#0E1220" stroke="#C8FF00" stroke-width="0.8"/>
+          <circle cx="78" cy="51" r="2.5" fill="#C8FF00" opacity="0.5"/>
+          <rect x="38" y="48" width="18" height="6" rx="1" fill="#C8FF00" opacity="0.1"/>
+          <rect x="35" y="62" width="50" height="12" rx="2" fill="#0E1220" stroke="#C8FF00" stroke-width="0.8"/>
+          <circle cx="78" cy="68" r="2.5" fill="#C8FF00" opacity="0.3"/>
+          <rect x="38" y="65" width="18" height="6" rx="1" fill="#C8FF00" opacity="0.07"/>
+          <!-- robot monitor -->
+          <rect x="105" y="30" width="38" height="28" rx="4" fill="#1a2235" stroke="#C8FF00" stroke-width="1.5"/>
+          <!-- robot eyes in monitor -->
+          <circle cx="116" cy="41" r="4" fill="#C8FF00" opacity="0.8"/>
+          <circle cx="132" cy="41" r="4" fill="#C8FF00" opacity="0.8"/>
+          <path d="M113 52 Q124 58 135 52" stroke="#C8FF00" stroke-width="1.2" fill="none" opacity="0.5"/>
+          <!-- monitor stand -->
+          <rect x="120" y="58" width="4" height="8" fill="#C8FF00" opacity="0.4"/>
+          <rect x="114" y="65" width="16" height="3" rx="1.5" fill="#C8FF00" opacity="0.3"/>
+          <!-- connection lines -->
+          <line x1="90" y1="34" x2="105" y2="41" stroke="#C8FF00" stroke-width="0.8" stroke-dasharray="3 2" opacity="0.5"/>
+          <line x1="90" y1="51" x2="105" y2="44" stroke="#C8FF00" stroke-width="0.8" stroke-dasharray="3 2" opacity="0.3"/>
+        </svg>
+      </div>
+      <div>
+        <div class="bento-idx">04</div>
+        <div class="bento-title">BDD — Gestion de machines virtuelles</div>
+        <p class="bento-desc">Base de données relationnelle pour la gestion de machines virtuelles avec requêtes complexes et optimisations.</p>
+      </div>
+      <div class="bento-tags">
+        <span class="bento-tag">PostgreSQL</span>
+        <span class="bento-tag">SQL avancé</span>
+      </div>
+    </div>
+
+    <!-- CARD 5 — Labyrinthe -->
+    <div class="bento-card b5">
+      <div class="bento-arrow">↗</div>
+      <div class="proj-illustration">
+        <svg viewBox="0 0 160 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- maze walls -->
+          <rect x="20" y="20" width="90" height="80" rx="3" fill="#1a2235" stroke="#C8FF00" stroke-width="1.2"/>
+          <!-- maze inner paths -->
+          <line x1="35" y1="20" x2="35" y2="60" stroke="#C8FF00" stroke-width="1" opacity="0.4"/>
+          <line x1="35" y1="60" x2="65" y2="60" stroke="#C8FF00" stroke-width="1" opacity="0.4"/>
+          <line x1="65" y1="35" x2="65" y2="60" stroke="#C8FF00" stroke-width="1" opacity="0.4"/>
+          <line x1="50" y1="35" x2="95" y2="35" stroke="#C8FF00" stroke-width="1" opacity="0.4"/>
+          <line x1="80" y1="35" x2="80" y2="75" stroke="#C8FF00" stroke-width="1" opacity="0.4"/>
+          <line x1="50" y1="75" x2="80" y2="75" stroke="#C8FF00" stroke-width="1" opacity="0.4"/>
+          <line x1="50" y1="50" x2="50" y2="75" stroke="#C8FF00" stroke-width="1" opacity="0.4"/>
+          <!-- START -->
+          <circle cx="28" cy="28" r="4" fill="#C8FF00" opacity="0.9"/>
+          <!-- END flag -->
+          <rect x="97" y="90" width="2" height="10" fill="#C8FF00" opacity="0.7"/>
+          <polygon points="99,90 108,93 99,96" fill="#C8FF00" opacity="0.7"/>
+          <!-- mini robot in maze -->
+          <rect x="38" y="40" width="12" height="12" rx="2" fill="#C8FF00" opacity="0.25" stroke="#C8FF00" stroke-width="1"/>
+          <circle cx="41" cy="44" r="1.5" fill="#C8FF00" opacity="0.8"/>
+          <circle cx="47" cy="44" r="1.5" fill="#C8FF00" opacity="0.8"/>
+          <!-- path trail -->
+          <polyline points="28,28 28,52 44,52" stroke="#C8FF00" stroke-width="1.2" opacity="0.5" stroke-dasharray="2 2" fill="none"/>
+          <!-- big robot watching -->
+          <rect x="120" y="35" width="30" height="25" rx="4" fill="#1a2235" stroke="#C8FF00" stroke-width="1.5"/>
+          <circle cx="130" cy="44" r="3.5" fill="#C8FF00" opacity="0.8"/>
+          <circle cx="141" cy="44" r="3.5" fill="#C8FF00" opacity="0.8"/>
+          <path d="M128 54 Q135 59 143 54" stroke="#C8FF00" stroke-width="1.2" fill="none" opacity="0.5"/>
+          <line x1="135" y1="35" x2="135" y2="27" stroke="#C8FF00" stroke-width="1.3"/>
+          <circle cx="135" cy="24" r="2.5" fill="#C8FF00"/>
+        </svg>
+      </div>
+      <div>
+        <div class="bento-idx">05</div>
+        <div class="bento-title">Jeu de labyrinthe</div>
+        <p class="bento-desc">Génération procédurale de niveaux et logique de déplacement codées entièrement en C++.</p>
+      </div>
+      <div class="bento-tags">
+        <span class="bento-tag">C++</span>
+        <span class="bento-tag">Algorithmes</span>
+      </div>
+    </div>
+
+    <!-- WIDE CARD 6 — Gestion entreprise -->
+    <div class="bento-card b6">
+      <div>
+        <div class="bento-idx">06</div>
+        <div class="bento-title">Système de gestion d'entreprise</div>
+        <p class="bento-desc">Application MVC complète avec modules RH, inventaire et reporting — du schéma BDD à l'interface finale.</p>
+        <div class="bento-tags" style="margin-top:1rem">
+          <span class="bento-tag">Java</span>
+          <span class="bento-tag">SQL</span>
+          <span class="bento-tag">MVC</span>
+          <span class="bento-tag">Architecture</span>
+        </div>
+      </div>
+      <!-- enterprise robot -->
+      <div class="proj-illustration" style="display:flex;align-items:center;justify-content:center">
+        <svg viewBox="0 0 200 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- main robot body -->
+          <rect x="70" y="55" width="60" height="55" rx="7" fill="#1a2235" stroke="#C8FF00" stroke-width="1.8"/>
+          <!-- tie / badge -->
+          <polygon points="100,65 96,80 100,85 104,80" fill="#C8FF00" opacity="0.3"/>
+          <!-- chest display -->
+          <rect x="78" y="70" width="18" height="12" rx="2" fill="#C8FF00" opacity="0.1" stroke="#C8FF00" stroke-width="0.8"/>
+          <rect x="80" y="72" width="6" height="2" rx="1" fill="#C8FF00" opacity="0.5"/>
+          <rect x="80" y="76" width="10" height="2" rx="1" fill="#C8FF00" opacity="0.3"/>
+          <rect x="80" y="80" width="8" height="2" rx="1" fill="#C8FF00" opacity="0.2"/>
+          <!-- head -->
+          <rect x="78" y="24" width="44" height="33" rx="7" fill="#1a2235" stroke="#C8FF00" stroke-width="1.8"/>
+          <!-- eyes -->
+          <rect x="85" y="33" width="10" height="7" rx="2" fill="#C8FF00" opacity="0.85"/>
+          <rect x="105" y="33" width="10" height="7" rx="2" fill="#C8FF00" opacity="0.85"/>
+          <!-- mouth -->
+          <path d="M87 50 Q100 57 113 50" stroke="#C8FF00" stroke-width="1.5" fill="none" opacity="0.55"/>
+          <!-- antenna -->
+          <line x1="100" y1="24" x2="100" y2="13" stroke="#C8FF00" stroke-width="1.5"/>
+          <circle cx="100" cy="10" r="3.5" fill="#C8FF00"/>
+          <!-- arms -->
+          <rect x="35" y="58" width="35" height="10" rx="5" fill="#1a2235" stroke="#C8FF00" stroke-width="1.3"/>
+          <rect x="130" y="58" width="35" height="10" rx="5" fill="#1a2235" stroke="#C8FF00" stroke-width="1.3"/>
+          <!-- clipboard left arm -->
+          <rect x="22" y="44" width="16" height="20" rx="2" fill="#C8FF00" opacity="0.15" stroke="#C8FF00" stroke-width="1"/>
+          <rect x="24" y="47" width="8" height="2" rx="1" fill="#C8FF00" opacity="0.5"/>
+          <rect x="24" y="51" width="10" height="1.5" rx="0.7" fill="#C8FF00" opacity="0.3"/>
+          <rect x="24" y="55" width="7" height="1.5" rx="0.7" fill="#C8FF00" opacity="0.2"/>
+          <!-- gear right arm -->
+          <circle cx="178" cy="60" r="10" stroke="#C8FF00" stroke-width="1.3" opacity="0.6"/>
+          <circle cx="178" cy="60" r="5" stroke="#C8FF00" stroke-width="1" opacity="0.4"/>
+          <line x1="178" y1="48" x2="178" y2="72" stroke="#C8FF00" stroke-width="1.5" opacity="0.5"/>
+          <line x1="166" y1="60" x2="190" y2="60" stroke="#C8FF00" stroke-width="1.5" opacity="0.5"/>
+          <line x1="169.5" y1="51.5" x2="186.5" y2="68.5" stroke="#C8FF00" stroke-width="1.2" opacity="0.4"/>
+          <line x1="186.5" y1="51.5" x2="169.5" y2="68.5" stroke="#C8FF00" stroke-width="1.2" opacity="0.4"/>
+          <!-- legs -->
+          <rect x="78" y="110" width="16" height="20" rx="4" fill="#1a2235" stroke="#C8FF00" stroke-width="1.3"/>
+          <rect x="106" y="110" width="16" height="20" rx="4" fill="#1a2235" stroke="#C8FF00" stroke-width="1.3"/>
+          <!-- feet -->
+          <rect x="75" y="128" width="20" height="6" rx="3" fill="#1a2235" stroke="#C8FF00" stroke-width="1"/>
+          <rect x="103" y="128" width="20" height="6" rx="3" fill="#1a2235" stroke="#C8FF00" stroke-width="1"/>
+        </svg>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════ PARCOURS ════ -->
+<section id="parcours">
+  <div class="section-label">04 — PARCOURS</div>
+  <h2 class="reveal">MON<br><span class="accent">CHEMIN</span></h2>
+
+  <div class="parcours-grid reveal">
+    <div>
+      <div class="parcours-col-title">Formation</div>
+
+      <div class="tl-item">
+        <div class="tl-date">2025–2026</div>
+        <div class="tl-body">
+          <div class="tl-role">L3 Informatique</div>
+          <div class="tl-org">Université Lumière Lyon 2</div>
+          <div class="tl-detail">En cours · Recherche de stage</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">2024–2025</div>
+        <div class="tl-body">
+          <div class="tl-role">L2 Informatique</div>
+          <div class="tl-org">Université Lumière Lyon 2</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">2022–2023</div>
+        <div class="tl-body">
+          <div class="tl-role">L1 Informatique</div>
+          <div class="tl-org">CERI — Avignon</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="parcours-col-title">Expérience</div>
+
+      <div class="tl-item">
+        <div class="tl-date">Mars 2025</div>
+        <div class="tl-body">
+          <div class="tl-role">Vendeuse</div>
+          <div class="tl-org">Pozzoli · Lyon</div>
+          <div class="tl-detail">Conseil client, gestion de caisse, organisation du point de vente.</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">Intérim</div>
+        <div class="tl-body">
+          <div class="tl-role">Employée polyvalente</div>
+          <div class="tl-org">Action · Lyon</div>
+          <div class="tl-detail">Mise en rayon, stock, service client. Adaptation rapide et travail en équipe.</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">09/23–09/24</div>
+        <div class="tl-body">
+          <div class="tl-role">Employée polyvalente</div>
+          <div class="tl-org">Restaurant · Avignon</div>
+          <div class="tl-detail">Service, gestion du stress, communication en équipe.</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">01/23–01/24</div>
+        <div class="tl-body">
+          <div class="tl-role">Caissière</div>
+          <div class="tl-org">Auchan · Avignon</div>
+          <div class="tl-detail">Encaissement, relation client, rigueur dans les transactions.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ LANGUES ════ -->
+<section id="langues">
+  <div class="section-label">05 — LANGUES</div>
+  <h2 class="reveal">JE PARLE<br><span class="accent">VOTRE</span> <span class="dim">LANGUE</span></h2>
+
+  <div class="lang-row reveal">
+    <div class="lang-item">
+      <div class="lang-emoji">🖋️</div>
+      <div class="lang-name">Français</div>
+      <div class="lang-lvl">Courant · Natif</div>
+      <div class="lang-bar"><div class="lang-fill" style="--w:1" data-w="1"></div></div>
+    </div>
+    <div class="lang-item">
+      <div class="lang-emoji">📜</div>
+      <div class="lang-name">Arabe</div>
+      <div class="lang-lvl">Courant</div>
+      <div class="lang-bar"><div class="lang-fill" data-w="0.9"></div></div>
+    </div>
+    <div class="lang-item">
+      <div class="lang-emoji">📖</div>
+      <div class="lang-name">Anglais</div>
+      <div class="lang-lvl">Bon niveau</div>
+      <div class="lang-bar"><div class="lang-fill" data-w="0.7"></div></div>
+    </div>
+    <div class="lang-item">
+      <div class="lang-emoji">📝</div>
+      <div class="lang-name">Espagnol</div>
+      <div class="lang-lvl">Notions</div>
+      <div class="lang-bar"><div class="lang-fill" data-w="0.25"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ CONTACT ════ -->
+<section id="contact">
+  <div class="section-label">06 — CONTACT</div>
+
+  <div class="contact-giant reveal">
+    <span>Écrivez-moi</span>
+    <a href="mailto:ghouarsarah@gmail.com">ghouarsarah@gmail.com</a>
+  </div>
+
+  <div class="contact-links-row reveal d1">
+    <a href="https://www.linkedin.com/in/sarah-ghouar-06379a2a4/" target="_blank" class="c-link">
+      <span class="c-link-icon">🔗</span>
+      LinkedIn — Sarah Ghouar
+    </a>
+    <a href="mailto:ghouarsarah@gmail.com" class="c-link">
+      <span class="c-link-icon">✉️</span>
+      ghouarsarah@gmail.com
+    </a>
+    <div class="c-link" style="cursor:default">
+      <span class="c-link-icon">📍</span>
+      Bron, Rhône-Alpes
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div class="footer-strip">
+  <span>SARAH GHOUAR · PORTFOLIO 2025</span>
+  <span>BRON · RHÔNE-ALPES · FR</span>
+  <span>CONÇU &amp; CODÉ MAISON ✦</span>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SCRIPTS
+═══════════════════════════════════════════ -->
+<script>
+/* ── NEURAL CANVAS ── */
+const canvas = document.getElementById('neural-canvas');
+const ctx = canvas.getContext('2d');
+let W, H, nodes=[];
+
+function resize() {
+  W = canvas.width  = canvas.offsetWidth;
+  H = canvas.height = canvas.offsetHeight;
+}
+resize();
+window.addEventListener('resize', resize);
+
+const N = 55;
+for (let i=0;i<N;i++) {
+  nodes.push({
+    x: Math.random()*W,
+    y: Math.random()*H,
+    vx:(Math.random()-.5)*0.4,
+    vy:(Math.random()-.5)*0.4,
+    r: 1.5+Math.random()*1.5
+  });
+}
+
+function drawNeural() {
+  ctx.clearRect(0,0,W,H);
+
+  // draw edges
+  for(let i=0;i<nodes.length;i++){
+    for(let j=i+1;j<nodes.length;j++){
+      const dx=nodes[i].x-nodes[j].x, dy=nodes[i].y-nodes[j].y;
+      const d=Math.sqrt(dx*dx+dy*dy);
+      if(d<160){
+        const op=(1-d/160)*0.22;
+        ctx.beginPath();
+        ctx.moveTo(nodes[i].x,nodes[i].y);
+        ctx.lineTo(nodes[j].x,nodes[j].y);
+        ctx.strokeStyle=`rgba(200,255,0,${op})`;
+        ctx.lineWidth=0.6;
+        ctx.stroke();
+      }
+    }
+  }
+
+  // draw nodes
+  nodes.forEach(n => {
+    ctx.beginPath();
+    ctx.arc(n.x,n.y,n.r,0,Math.PI*2);
+    ctx.fillStyle='rgba(200,255,0,0.5)';
+    ctx.fill();
+
+    // move
+    n.x+=n.vx; n.y+=n.vy;
+    if(n.x<0||n.x>W) n.vx*=-1;
+    if(n.y<0||n.y>H) n.vy*=-1;
+  });
+
+  requestAnimationFrame(drawNeural);
+}
+drawNeural();
+
+/* ── SCROLL REVEAL ── */
+const revEls = document.querySelectorAll('.reveal');
+const revObs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting) e.target.classList.add('visible');
+  });
+},{threshold:0.08});
+revEls.forEach(el=>revObs.observe(el));
+
+/* ── COUNTER ANIMATION ── */
+function animCount(el, target){
+  let current=0;
+  const step = target/50;
+  const t = setInterval(()=>{
+    current=Math.min(current+step, target);
+    el.textContent = Math.round(current) + (target===10?'+':'');
+    if(current>=target) clearInterval(t);
+  },30);
+}
+
+const countObs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.querySelectorAll('[data-target]').forEach(el=>{
+        animCount(el, parseInt(el.dataset.target));
+      });
+      countObs.unobserve(e.target);
+    }
+  });
+},{threshold:0.3});
+document.querySelector('.about-stats') && countObs.observe(document.querySelector('.about-stats'));
+
+/* ── LANG BARS ── */
+const barObs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.querySelectorAll('.lang-fill').forEach(b=>{
+        b.style.transform = `scaleX(${b.dataset.w})`;
+        b.classList.add('animate');
+      });
+      barObs.unobserve(e.target);
+    }
+  });
+},{threshold:0.3});
+document.querySelector('.lang-row') && barObs.observe(document.querySelector('.lang-row'));
+
+/* ── NAV ACTIVE ── */
+const secs = document.querySelectorAll('section[id]');
+const navAs = document.querySelectorAll('nav a');
+window.addEventListener('scroll', ()=>{
+  let cur='';
+  secs.forEach(s=>{ if(window.scrollY>=s.offsetTop-250) cur=s.id; });
+  navAs.forEach(a=>{ a.style.opacity = a.getAttribute('href')==='#'+cur?'1':'0.6'; });
+});
+
+/* ── THEME TOGGLE ── */
+const htmlEl = document.documentElement;
+const toggleBtn = document.getElementById('theme-toggle');
+const icon1 = document.getElementById('toggle-icon');
+const icon2 = document.getElementById('toggle-icon2');
+
+// restore saved preference
+const saved = localStorage.getItem('sg-theme') || 'dark';
+if(saved === 'light') applyLight();
+
+function applyLight() {
+  htmlEl.setAttribute('data-theme','light');
+  icon1.textContent = '🌙';
+  icon2.textContent = '☀️';
+}
+
+function applyDark() {
+  htmlEl.removeAttribute('data-theme');
+  icon1.textContent = '🌙';
+  icon2.textContent = '☀️';
+}
+
+toggleBtn.addEventListener('click', ()=>{
+  const isLight = htmlEl.getAttribute('data-theme') === 'light';
+  if(isLight) {
+    applyDark();
+    localStorage.setItem('sg-theme','dark');
+  } else {
+    applyLight();
+    localStorage.setItem('sg-theme','light');
+  }
+});
+</script>
+</body>
+</html>
