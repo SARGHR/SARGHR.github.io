@@ -1,0 +1,680 @@
+<!doctype html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#07070d"><meta name="description" content="Sarah Ghouar — Portfolio créatif, développement, data et intelligence artificielle."><title>SG.exe — Neon Tokyo | Sarah Ghouar</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"><style>
+:root{--pink:#ff2a83;--cyan:#6cfaff;--white:#f5f7ff;--muted:#a6acc0;--bg:#07070d}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--white);font-family:Inter,Arial,sans-serif;overflow-x:hidden}a{color:inherit;text-decoration:none}button{font:inherit}::selection{background:var(--pink);color:white}#rain{position:fixed;inset:0;z-index:8;pointer-events:none;opacity:.26}body:after{content:"";position:fixed;inset:0;pointer-events:none;z-index:9;background:repeating-linear-gradient(0deg,transparent 0 3px,#ffffff04 4px 5px);opacity:.25}.top{position:fixed;z-index:20;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;padding:23px 5.5%;background:linear-gradient(#080811d9,transparent);transition:background .3s}.top.scrolled{background:#080811e8;backdrop-filter:blur(18px);border-bottom:1px solid #ffffff20}.logo{font:900 29px 'Barlow Condensed';letter-spacing:-1px}.logo b{color:var(--pink)}.top nav{display:flex;gap:32px}.top nav a,.tiny{font:500 11px 'DM Mono',monospace;letter-spacing:2px;text-transform:uppercase}.top nav a:hover{color:var(--cyan)}.status{font:11px 'DM Mono';color:var(--cyan)}.status:before{content:"● ";color:#6fffaa}.hero{height:100svh;min-height:680px;position:relative;display:flex;align-items:center;overflow:hidden;background:#0a0814}.city{position:absolute;inset:-4%;background:url('assets/tokyo.png') center 52%/cover;transform:scale(1.07);will-change:transform;filter:saturate(1.18) contrast(1.1) brightness(.66)}.hero:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,#060610ed 0%,#060610a8 39%,#06061018 90%),linear-gradient(0deg,#07070d 0%,transparent 28%,#06061044 100%)}.hero:after{content:"";position:absolute;inset:0;z-index:1;box-shadow:inset 0 0 180px #07070dbb;pointer-events:none}.hero-content{position:relative;z-index:3;padding:80px 8%;max-width:1000px}.eyebrow{font:500 12px 'DM Mono';letter-spacing:3px;color:var(--cyan);text-transform:uppercase}.hero h1{font:900 clamp(90px,15vw,230px)/.72 'Barlow Condensed',sans-serif;letter-spacing:-.045em;margin:38px 0 25px;text-transform:uppercase;text-shadow:0 8px 50px #0009}.hero h1 span{display:block;color:transparent;-webkit-text-stroke:2px var(--white);filter:drop-shadow(0 0 15px #ff2a8366)}.hero .subtitle{font:700 clamp(18px,2.2vw,28px) 'Barlow Condensed';letter-spacing:6px;text-transform:uppercase;color:#fff}.hero p{font-size:14px;line-height:1.8;color:#e2e3ed;max-width:460px;margin:22px 0 35px}.actions{display:flex;gap:12px;flex-wrap:wrap}.btn{border:1px solid #ffffff55;padding:17px 25px;font:500 11px 'DM Mono';letter-spacing:1px;text-transform:uppercase;display:inline-flex;gap:22px;align-items:center;transition:transform .2s,background .2s,box-shadow .2s;cursor:pointer}.btn:hover{transform:translateY(-4px);box-shadow:0 0 28px #ff2a8366}.btn.primary{background:var(--pink);border-color:var(--pink);color:white}.btn.secondary{background:#08091466;backdrop-filter:blur(10px)}.vertical{position:absolute;z-index:3;right:3%;top:36%;writing-mode:vertical-rl;font:500 12px 'DM Mono';letter-spacing:5px;color:#e4fdff}.scroll{position:absolute;z-index:3;bottom:45px;right:6%;font:11px 'DM Mono';letter-spacing:3px;display:flex;align-items:center;gap:15px}.scroll:after{content:"";height:1px;width:80px;background:var(--pink)}.ticker{background:var(--pink);color:#100812;overflow:hidden;padding:14px 0;white-space:nowrap;font:800 18px 'Barlow Condensed';letter-spacing:5px}.ticker div{width:max-content;animation:marquee 30s linear infinite}@keyframes marquee{to{transform:translateX(-50%)}}section:not(.hero){padding:120px max(6%,calc((100vw - 1300px)/2))}.section-top{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:45px}.section-id{font:500 11px 'DM Mono';letter-spacing:3px;color:var(--pink)}h2{font:900 clamp(55px,9vw,125px)/.85 'Barlow Condensed';letter-spacing:-2px;text-transform:uppercase;margin:20px 0 0}h2 em{color:var(--cyan);font-style:normal}.intro{max-width:400px;color:var(--muted);line-height:1.9;font-size:14px}.projects{background:radial-gradient(ellipse at 80% 20%,#1a0c2b 0%,transparent 55%),#080910}.project-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}.project{grid-column:span 3;position:relative;min-height:365px;overflow:hidden;background:#10121f;border:1px solid #ffffff20;padding:30px;display:flex;flex-direction:column;justify-content:space-between;isolation:isolate;cursor:pointer;transition:border .3s,transform .3s;transform-style:preserve-3d}.project:first-child,.project:last-child{grid-column:span 6}.project:hover{border-color:var(--cyan);transform:translateY(-6px)}.project:before{content:"";position:absolute;inset:0;z-index:-2;background:radial-gradient(circle at 78% 48%,var(--glow),transparent 52%);opacity:.8}.project:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#0b0d19 0%,#0b0d19b0 50%,transparent)}.project .number{font:12px 'DM Mono';color:var(--cyan)}.project .art{position:absolute;right:7%;top:22%;font:900 clamp(80px,14vw,180px) 'Barlow Condensed';color:transparent;-webkit-text-stroke:2px var(--accent);opacity:.45;transform:rotate(-12deg);text-shadow:0 0 35px var(--glow);pointer-events:none}.project h3{font:900 clamp(36px,5vw,65px)/.9 'Barlow Condensed';text-transform:uppercase;max-width:440px;margin:0 0 13px}.project p{font-size:13px;color:#b9bed1;line-height:1.7;max-width:460px}.tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:20px}.tags span{font:10px 'DM Mono';padding:8px 10px;border:1px solid #ffffff3a;color:#d6d8e5}.project .open{position:absolute;right:30px;bottom:30px;font:25px 'DM Mono';color:var(--cyan)}.about{background:#090a11;display:grid;grid-template-columns:1fr 1fr;gap:10%;align-items:center}.about p{line-height:2;color:#b8bdd0}.about strong{color:white}.about .kanji{font:900 clamp(140px,20vw,340px) 'Barlow Condensed';color:var(--pink);text-align:center;line-height:.8;opacity:.8;text-shadow:0 0 65px #ff2a8355}.skills{background:linear-gradient(140deg,#080a12,#12091b)}.skill-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:45px}.skill{border:1px solid #ffffff22;padding:30px;background:#ffffff05;min-height:180px;transition:background .2s,border .2s}.skill:hover{background:#ff2a8310;border-color:var(--pink)}.skill .icon{font-size:26px;color:var(--cyan)}.skill h3{font:800 27px 'Barlow Condensed';text-transform:uppercase;letter-spacing:1px}.skill p{color:var(--muted);font-size:13px;line-height:1.8}.contact{text-align:center;background:radial-gradient(ellipse at center,#3b0c3d 0%,#080910 60%)}.contact h2{font-size:clamp(75px,13vw,185px)}.contact p{color:#b9bed0;margin:35px auto;max-width:560px;line-height:1.8}.contact .actions{justify-content:center}footer{padding:25px 6%;border-top:1px solid #ffffff24;display:flex;justify-content:space-between;gap:20px;color:#9ea2b7;font:10px 'DM Mono';letter-spacing:1px}.modal{position:fixed;z-index:40;inset:0;background:#05060de8;backdrop-filter:blur(22px);display:none;align-items:center;justify-content:center;padding:24px}.modal.active{display:flex}.modal-panel{border:1px solid var(--pink);background:linear-gradient(145deg,#1c1025,#090b15);max-width:760px;width:100%;padding:clamp(28px,5vw,65px);position:relative;box-shadow:0 0 90px #ff2a8322}.modal-close{position:absolute;right:20px;top:15px;background:none;border:0;color:white;font-size:35px;cursor:pointer}.modal h3{font:900 clamp(48px,8vw,90px)/.9 'Barlow Condensed';text-transform:uppercase;margin:22px 0}.modal p{color:#c1c4d6;line-height:1.9}.reveal{opacity:0;transform:translateY(35px);transition:opacity .7s,transform .7s}.reveal.visible{opacity:1;transform:none}@media(max-width:850px){.top nav{gap:14px}.top nav a{font-size:9px}.status{display:none}.hero-content{padding-left:6%}.hero h1{font-size:clamp(80px,18vw,150px)}.section-top{display:block}.project-grid{display:block}.project{margin-bottom:15px}.about{grid-template-columns:1fr}.about .kanji{display:none}.skill-grid{grid-template-columns:1fr 1fr}}@media(max-width:540px){.top{padding:17px 5%}.top nav a:nth-child(2){display:none}.top nav{gap:12px}.hero{min-height:620px}.hero h1{font-size:23vw}.hero .subtitle{font-size:17px;letter-spacing:3px}.vertical{display:none}section:not(.hero){padding:85px 6%}.skill-grid{grid-template-columns:1fr}.project{min-height:350px;padding:24px}.project .art{font-size:130px}.scroll{right:6%}footer{flex-direction:column}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}#rain{display:none}}
+
+/* V2 / INTERACTIVE DISTRICTS */
+.project{min-height:445px;transition:transform .3s,border-color .3s,box-shadow .3s}.project:hover{box-shadow:0 0 50px var(--glow),inset 0 0 45px #ffffff08}.project .art{display:none}.project .number,.project>div:last-of-type,.project .open{position:relative;z-index:3}.project p{max-width:410px}.project-stage{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}.project-stage:after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#0b0d19 3%,#0b0d19a8 47%,transparent 100%)}.project-stage svg{position:absolute;right:0;top:5%;width:60%;height:90%;filter:drop-shadow(0 0 16px var(--glow));opacity:.85}.project:hover .project-stage svg{animation:stage-in 1.1s ease both}@keyframes stage-in{from{transform:scale(.9) translateY(20px);opacity:.3}to{transform:scale(1);opacity:1}}.project[data-index="0"] .scanline{position:absolute;right:4%;width:54%;height:3px;background:#ff3a87;box-shadow:0 0 22px #ff3a87;top:20%;animation:scan 3s linear infinite}.project[data-index="0"] .project-stage:before{content:'THREAT DETECTED // 98.7%';position:absolute;right:7%;top:18%;font:10px 'DM Mono';color:#ff8dbb;animation:blink 1.2s infinite}.project[data-index="1"] .project-stage svg{animation:float 4s ease-in-out infinite}.project[data-index="2"] .maze-runner{position:absolute;right:11%;top:22%;height:10px;width:10px;background:var(--cyan);box-shadow:0 0 20px var(--cyan);animation:maze-walk 6s steps(1) infinite;z-index:2}.project[data-index="3"] .pulse-line{position:absolute;right:8%;top:28%;width:43%;height:2px;background:#b4a5ff;box-shadow:0 0 20px #b4a5ff;animation:api-pulse 2.5s ease-in-out infinite}.project[data-index="4"] .target{position:absolute;right:25%;top:31%;width:110px;height:110px;border:2px solid var(--cyan);box-shadow:0 0 25px #6cfaff88;animation:target 3s ease-in-out infinite}.project[data-index="4"] .target:before,.project[data-index="4"] .target:after{content:'';position:absolute;background:var(--cyan)}.project[data-index="4"] .target:before{height:1px;left:-20px;right:-20px;top:50%}.project[data-index="4"] .target:after{width:1px;top:-20px;bottom:-20px;left:50%}@keyframes scan{0%{top:15%;opacity:0}15%,85%{opacity:1}100%{top:85%;opacity:0}}@keyframes blink{50%{opacity:.2}}@keyframes float{50%{transform:translateY(-14px) rotate(3deg)}}@keyframes maze-walk{0%{transform:translate(0,0)}20%{transform:translate(-80px,0)}40%{transform:translate(-80px,85px)}60%{transform:translate(-170px,85px)}80%{transform:translate(-170px,170px)}100%{transform:translate(-230px,170px)}}@keyframes api-pulse{0%,100%{transform:scaleX(.4);opacity:.3}50%{transform:scaleX(1);opacity:1}}@keyframes target{50%{transform:scale(1.15) rotate(7deg);opacity:.5}}.skill{position:relative;overflow:hidden;cursor:pointer;min-height:245px}.skill:after{content:'';position:absolute;inset:auto -20% -60% -20%;height:130%;background:radial-gradient(circle,#6cfaff18,transparent 65%);transform:translateY(40px);transition:transform .4s}.skill:hover:after{transform:translateY(0)}.skill-demo{height:80px;position:relative;margin:12px 0;overflow:hidden}.skill-demo svg{height:100%;width:100%;overflow:visible}.skill-demo svg *{vector-effect:non-scaling-stroke}.skill:hover .skill-demo svg{filter:drop-shadow(0 0 8px #6cfaff99)}.skill-demo .bar{transform-origin:bottom;animation:bar-grow 2.1s ease-in-out infinite alternate}.skill-demo .node{animation:node-glow 1.8s ease-in-out infinite alternate}.skill-demo .terminal-cursor{animation:blink .7s steps(1) infinite}.skill-demo .spin{transform-origin:50% 50%;animation:spin 9s linear infinite}@keyframes bar-grow{from{transform:scaleY(.3)}to{transform:scaleY(1)}}@keyframes node-glow{to{opacity:.25}}@keyframes spin{to{transform:rotate(360deg)}}.skill-action{position:relative;z-index:2;background:#6cfaff12;border:1px solid #6cfaff77;color:#bafcff;padding:8px 11px;font:10px 'DM Mono';letter-spacing:1px;cursor:pointer;margin-top:8px}.skill-action:hover{background:#6cfaff35}.skill-feedback{font:11px 'DM Mono';color:#6cfaff;min-height:20px;margin-top:9px;position:relative;z-index:2}.skill-grid .skill h3{margin:8px 0}.skill-grid .skill p{margin:4px 0}.district-hint{position:absolute;right:28px;top:26px;font:10px 'DM Mono';color:#c9faff;z-index:3;letter-spacing:1px}.project:hover .district-hint{color:#fff}.cursor-light{position:fixed;width:260px;height:260px;pointer-events:none;border-radius:50%;background:radial-gradient(circle,#6cfaff0c,transparent 65%);z-index:10;transform:translate(-50%,-50%)}@media(max-width:850px){.project-stage svg{width:76%;opacity:.52}.project-stage:after{background:linear-gradient(90deg,#0b0d19e8,#0b0d1966)}.skill{min-height:250px}}@media(prefers-reduced-motion:reduce){.project-stage *,.skill-demo *{animation:none!important}.cursor-light{display:none}}
+
+/* V3 — Chaque quartier possède son propre panorama nocturne */
+.project{background:#090d19}
+.project::before{background-image:linear-gradient(90deg,#070a18ee 0%,#080a18c9 48%,#080a1877 100%),var(--district-bg);background-position:center;background-size:cover;opacity:.9;transition:transform .8s ease,filter .8s ease,opacity .8s ease}
+.project:hover::before{opacity:1;transform:scale(1.075);filter:saturate(1.5)}
+.project::after{background:linear-gradient(90deg,#080b18d9 0%,#080b1888 55%,transparent 100%)}
+.project-stage{z-index:1;opacity:.95}
+.project .number,.project>div:last-of-type,.project .open,.district-hint{z-index:3}
+.project .district-hint{background:#080c19b8;border:1px solid #ffffff36;padding:9px 11px;backdrop-filter:blur(8px)}
+.projects,.skills,.about,.contact{position:relative;isolation:isolate;background:#080910}
+.projects::before,.skills::before,.about::before,.contact::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background-position:center;background-size:cover;background-attachment:fixed;opacity:.26}
+.projects::before{background-image:linear-gradient(#07081277,#070812cc),url('assets/arcade-district.svg')}
+.skills::before{background-image:linear-gradient(#07081299,#070812aa),url('assets/tech-district.svg')}
+.about::before{background-image:linear-gradient(#07081288,#070812bb),url('assets/about-district.svg')}
+.contact::before{background-image:linear-gradient(#07081288,#070812aa),url('assets/contact-district.svg')}
+.project{box-shadow:inset 0 0 70px #03051066}
+.project:hover{box-shadow:0 0 55px var(--glow),inset 0 0 50px #03051066}
+@media(max-width:850px){.projects::before,.skills::before,.about::before,.contact::before{background-attachment:scroll}.project::before{background-position:60% center}}
+@media(prefers-reduced-motion:reduce){.project:hover::before{transform:none}}
+
+/* V4: vraies photos de Tokyo visibles à travers chaque vitrine */
+.project{background:#0b0b18}
+.project::before{background-image:var(--district-bg)!important;background-size:cover!important;background-position:center!important;opacity:.62!important;filter:saturate(1.25) contrast(1.1)!important;transform:scale(1.015);transition:transform .8s ease,opacity .8s ease,filter .8s ease!important}
+.project::after{background:linear-gradient(90deg,rgba(4,6,18,.93) 0%,rgba(5,7,20,.77) 39%,rgba(5,7,20,.37) 75%,rgba(5,7,20,.29) 100%)!important;z-index:-1!important}
+.project:hover::before{opacity:.83!important;transform:scale(1.09);filter:saturate(1.45) contrast(1.1)!important}
+.project .project-stage{z-index:1;filter:drop-shadow(0 0 14px #0009)}
+.project .number,.project .district-hint,.project .open,.project>div:last-of-type{position:relative;z-index:3}
+.project .open{position:absolute}
+.project .district-hint{position:absolute;right:30px;top:30px}
+.project h3,.project p,.project .tags{text-shadow:0 2px 15px #03040b,0 0 10px #03040b}
+@media(prefers-reduced-motion:reduce){.project:hover::before{transform:none}}
+
+/* V5: 11 distinct photographic compositions, visible inside every card */
+.project::before{background-image:linear-gradient(90deg,rgba(4,7,18,.77),rgba(5,7,17,.34)),var(--district-bg)!important;opacity:.88!important;background-position:center!important;background-size:cover!important;filter:saturate(1.18)}
+.project::after{background:linear-gradient(90deg,rgba(4,6,16,.88) 0%,rgba(4,6,16,.48) 52%,rgba(4,6,16,.16) 100%)!important}
+.project:hover::before{opacity:1!important;transform:scale(1.055)}
+.skill{position:relative;isolation:isolate;overflow:hidden;background:#0b1020!important}
+.skill::before{content:"";position:absolute;inset:0;z-index:-2;background-image:var(--skill-photo);background-size:cover;background-position:center;opacity:.62;filter:saturate(1.18);transition:transform .6s,opacity .6s}
+.skill::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(115deg,rgba(3,7,18,.87),rgba(3,7,18,.42))}
+.skill:hover::before{opacity:.85;transform:scale(1.075)}
+.skill h3,.skill p,.skill .skill-demo,.skill .skill-action,.skill .skill-feedback,.skill .icon{position:relative;z-index:2}
+.skill p{color:#e4e8f3!important;text-shadow:0 1px 6px #02030d}
+@media(prefers-reduced-motion:reduce){.project:hover::before,.skill:hover::before{transform:none}}
+
+/* V6 — cadres arrondis, vitres futuristes et angles adoucis */
+.project{border-radius:28px!important;overflow:hidden;box-shadow:0 14px 42px #0008,inset 0 1px #ffffff22!important}
+.project::before,.project::after,.project-stage{border-radius:inherit}
+.project:hover{box-shadow:0 18px 55px #0009,0 0 32px var(--glow)!important}
+.skill{border-radius:24px!important;overflow:hidden;box-shadow:0 12px 35px #0006,inset 0 1px #ffffff1e}
+.skill::before,.skill::after{border-radius:inherit}
+.skill:hover{box-shadow:0 16px 42px #0009,0 0 24px #ff2a8329}
+.tags span,.skill-action,.district-hint{border-radius:12px}
+.btn,.modal-panel{border-radius:16px}
+.skill-demo{border-radius:14px}
+@media(max-width:540px){.project{border-radius:22px!important}.skill{border-radius:20px!important}}
+
+/* NEON TOKYO V7 — interactive arcade */
+.arcade-zone{background:linear-gradient(130deg,#080b16,#170a22);position:relative;isolation:isolate}
+.arcade-zone:before{content:"";position:absolute;inset:0;z-index:-1;background:url('assets/bg-maze.webp') center/cover;opacity:.20}
+.arcade-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:35px}
+.arcade-panel{min-width:0;border:1px solid #69faff66;border-radius:26px;background:#060a18dd;box-shadow:0 20px 65px #0007,inset 0 0 38px #2ff7ff0b;padding:26px;overflow:hidden}
+.arcade-panel h3{font:800 33px 'Barlow Condensed',sans-serif;letter-spacing:1px;text-transform:uppercase;margin:0 0 10px}
+.arcade-panel .micro{color:#8ffaff;font:11px 'DM Mono',monospace;letter-spacing:1px}
+.terminal-output{height:240px;overflow:auto;background:#020611;border:1px solid #4bffec55;border-radius:12px;padding:16px;font:12px/1.8 'DM Mono',monospace;color:#a8fff0;white-space:pre-wrap;overflow-wrap:anywhere}
+.terminal-entry{display:flex;gap:10px;margin-top:12px;align-items:center;color:#ff5fb4}
+.terminal-entry input{min-width:0;flex:1;background:#0b1220;color:#fff;border:1px solid #64faff88;border-radius:10px;padding:12px;font:13px 'DM Mono',monospace}
+.terminal-entry button,.maze-controls button,.arcade-reset,.network-pills button{border:1px solid #70ffff88;border-radius:10px;background:#0e2634;color:#a9ffff;padding:10px 14px;cursor:pointer}
+.terminal-entry button:hover,.maze-controls button:hover,.arcade-reset:hover,.network-pills button:hover{background:#22415c}
+.maze-celebration{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:5}.maze-panel{position:relative;isolation:isolate}.maze-grid{display:grid;grid-template-columns:repeat(11,minmax(0,1fr));gap:3px;max-width:385px;margin:12px auto}
+.maze-cell{aspect-ratio:1;border-radius:4px;background:#111a2d}
+.maze-cell.wall{background:linear-gradient(135deg,#7222a2,#2c164d);box-shadow:inset 0 0 0 1px #b47dff55}
+.maze-cell.player{background:#ff4da4;box-shadow:0 0 15px #ff4da4}
+.maze-cell.goal{background:#25ffd5;box-shadow:0 0 14px #25ffd5}
+.maze-controls{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:14px}
+.maze-controls button{min-width:43px}
+.maze-status{font:12px 'DM Mono',monospace;color:#b9fff5;min-height:35px}
+.network-panel{grid-column:1/-1}
+.network-layout{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(210px,1fr);gap:22px;align-items:center}
+.network-svg{width:100%;height:auto;max-height:330px;overflow:visible}
+.network-svg line{stroke:#61f5ff;stroke-opacity:.34;stroke-width:2}
+.network-svg circle{fill:#10283a;stroke:#76ffff;stroke-width:2;transition:fill .2s,filter .2s}
+.network-svg g{cursor:pointer}
+.network-svg g:hover circle,.network-svg g.active circle{fill:#ff2a83;filter:drop-shadow(0 0 12px #ff2a83)}
+.network-svg text{font:11px 'DM Mono',monospace;fill:#e9ffff;text-anchor:middle;pointer-events:none}
+.network-details{border:1px solid #ffffff30;border-radius:18px;background:#0d1225;padding:20px;min-height:160px}
+.network-details strong{color:#65ffff}
+.network-details p{font-size:13px;line-height:1.8;color:#d6dbed}
+.network-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.arcade-reset{margin-top:10px}
+@media(max-width:850px){.arcade-grid,.network-layout{grid-template-columns:1fr}.network-panel{grid-column:auto}}
+@media(prefers-reduced-motion:reduce){.network-svg circle{transition:none}}
+
+/* V8 — Interactive neon Tokyo transit map */
+.district-map{position:relative;isolation:isolate;overflow:hidden;background:#060913;padding:100px max(6vw,22px);border-top:1px solid #54f5ff2b;border-bottom:1px solid #54f5ff2b}
+.district-map::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#060913ec,#060913a8),url('assets/bg-api.webp') center/cover;opacity:.85}
+.map-shell{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(290px,.8fr);gap:24px;max-width:1320px;margin:35px auto 0;align-items:stretch}
+.map-board{position:relative;border:1px solid #69ffff6e;border-radius:30px;background:radial-gradient(ellipse at 50% 50%,#15304766,#070b1de8 68%);padding:16px;box-shadow:0 0 70px #2bdbf41a,inset 0 0 35px #62ffff0c}
+.map-board:after{content:"TOKYO / DISTRICT NETWORK";position:absolute;bottom:19px;left:24px;color:#71f7ff;font:10px 'DM Mono',monospace;letter-spacing:2px}
+.tokyo-map{display:block;width:100%;height:auto}
+.tokyo-map .route{fill:none;stroke:#66eafa;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;opacity:.66;stroke-dasharray:14 11;animation:metro-dash 17s linear infinite}
+.tokyo-map .route.pink{stroke:#ff3d9d}
+.tokyo-map .route.yellow{stroke:#ffcb6e}
+@keyframes metro-dash{to{stroke-dashoffset:-350}}
+.tokyo-map .station{cursor:pointer;outline:none}
+.tokyo-map .station circle{fill:#10152d;stroke:#7cfaff;stroke-width:4;transition:fill .25s,stroke .25s,filter .25s}
+.tokyo-map .station.selected circle,.tokyo-map .station:hover circle,.tokyo-map .station:focus circle{fill:#ff2a83;stroke:#fff;filter:drop-shadow(0 0 14px #ff2a83)}
+.tokyo-map .station text{font:700 15px 'DM Mono',monospace;fill:#fff;pointer-events:none}
+.tokyo-map .station .station-jp{font-size:11px;fill:#89faff}
+.map-panel{border-radius:30px;border:1px solid #ff4ea46b;padding:32px;background:linear-gradient(150deg,#160c26e8,#070a17ee);display:flex;flex-direction:column;justify-content:space-between;gap:16px;min-height:350px}
+.map-panel .district-code{font:12px 'DM Mono',monospace;color:#80faff;letter-spacing:2px}
+.map-panel h3{font:800 clamp(35px,4vw,60px)/1 'Barlow Condensed',sans-serif;color:white;text-transform:uppercase;margin:12px 0}
+.map-panel p{color:#dce0ed;line-height:1.8}
+.map-panel .map-cta{align-self:flex-start;border:1px solid #ff5fae;border-radius:14px;padding:13px 18px;background:#ff2a83;color:white;cursor:pointer;font:700 12px 'DM Mono',monospace;letter-spacing:1px}
+.map-panel .map-cta:hover{background:#bc175f}
+.map-legend{display:flex;flex-wrap:wrap;gap:15px;margin-top:18px;color:#b4c9d9;font:11px 'DM Mono',monospace}
+.map-legend span:before{content:"●";color:#6cfaff;margin-right:7px}
+.map-legend span:nth-child(2):before{color:#ff2a83}
+.map-legend span:nth-child(3):before{color:#ffca66}
+@media(max-width:850px){.map-shell{grid-template-columns:1fr}.map-panel{min-height:240px}.district-map{padding-top:75px;padding-bottom:75px}}
+@media(prefers-reduced-motion:reduce){.tokyo-map .route{animation:none}}
+.project.map-highlight{outline:3px solid #ff5cae;outline-offset:5px;box-shadow:0 0 55px #ff2a8388!important}
+/* V9 District Portal — cinematic scene overlay */
+.portal{position:fixed;inset:0;z-index:3000;display:none;align-items:center;justify-content:center;background:#02040c;isolation:isolate;overflow:hidden;color:#fff}
+.portal.is-open{display:flex;animation:portal-enter .65s cubic-bezier(.2,.7,.2,1) both}
+.portal.is-leaving{animation:portal-leave .35s ease both}
+.portal-backdrop{position:absolute;inset:-5%;z-index:-3;background-image:var(--portal-image);background-size:cover;background-position:center;transform:scale(1.12);animation:portal-camera 12s ease-in-out infinite alternate}
+.portal:before{content:'';position:absolute;inset:0;z-index:-2;background:linear-gradient(90deg,#030511ed 5%,#030511aa 47%,#03051155),linear-gradient(0deg,#030511c9,transparent 55%)}
+.portal:after{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;background:repeating-linear-gradient(0deg,transparent 0 5px,#78faff07 6px 7px);mix-blend-mode:screen}
+.portal-shell{position:relative;width:min(1150px,92vw);min-height:60vh;display:flex;align-items:center;justify-content:space-between;gap:28px}
+.portal-content{max-width:670px;padding:20px 0;text-shadow:0 3px 25px #000}
+.portal-eyebrow{color:#7afaff;font:12px 'DM Mono',monospace;letter-spacing:3px}
+.portal-title{font:900 clamp(60px,11vw,155px)/.85 'Barlow Condensed',sans-serif;letter-spacing:-2px;text-transform:uppercase;margin:24px 0 20px;filter:drop-shadow(0 0 20px #ff2a8366)}
+.portal-project{color:#ff79b8;font:700 clamp(18px,2.4vw,30px) 'DM Mono',monospace;margin-bottom:18px}
+.portal-description{font-size:clamp(15px,1.5vw,19px);line-height:1.8;max-width:530px;color:#e8ecf5}
+.portal-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.portal-actions button,.portal-close{cursor:pointer;background:#ff2a83;border:1px solid #ff9cc7;color:white;padding:15px 22px;border-radius:15px;font:700 12px 'DM Mono',monospace;letter-spacing:1px;transition:transform .2s,background .2s}
+.portal-actions button:hover,.portal-close:hover{background:#bf1c66;transform:translateY(-2px)}
+.portal-actions .portal-secondary{background:#0a1329dd;border-color:#77ffff9c}
+.portal-close{position:absolute;right:clamp(15px,4vw,50px);top:clamp(18px,4vw,40px);z-index:5;padding:12px 16px;background:#060d1ccc}
+.portal-sign{writing-mode:vertical-rl;font:900 clamp(35px,7vw,95px) sans-serif;color:#8dfaffaa;text-shadow:0 0 22px #57faff;letter-spacing:12px;border:2px solid #5bfaff88;padding:20px 9px;background:#0613278a;box-shadow:0 0 25px #59faff33}
+.portal-index{position:absolute;bottom:25px;right:30px;color:#9ffcff;font:11px 'DM Mono',monospace;letter-spacing:2px}
+.portal-loading{position:absolute;bottom:0;left:0;height:4px;width:100%;background:linear-gradient(90deg,#ff2a83,#66faff);transform-origin:left;animation:portal-progress .8s ease-out both}
+@keyframes portal-enter{from{opacity:0;clip-path:circle(0% at 50% 50%)}to{opacity:1;clip-path:circle(85% at 50% 50%)}}
+@keyframes portal-leave{to{opacity:0;transform:scale(1.04)}}
+@keyframes portal-camera{to{transform:scale(1.2) translate(-2%,1%)}}
+@keyframes portal-progress{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+body.portal-locked{overflow:hidden}
+@media(max-width:680px){.portal-shell{min-height:65vh}.portal-sign{display:none}.portal-title{font-size:clamp(60px,15vw,100px)}.portal-content{padding-top:45px}}
+@media(prefers-reduced-motion:reduce){.portal,.portal.is-open,.portal.is-leaving,.portal-backdrop,.portal-loading{animation:none!important}.portal-actions button{transition:none}}
+
+/* V10 — visual polish based on screenshots: contrast, compact layout, map spacing */
+#rain{opacity:.085!important;z-index:3!important}
+.top{z-index:25}
+.modal{z-index:60}
+.modal-panel{background:linear-gradient(130deg,rgba(14,12,30,.95),rgba(12,8,26,.96)),url('assets/bg-maze.webp') center/cover;box-shadow:0 24px 85px #000a,0 0 38px #ff2a8328;border-radius:26px!important;max-width:730px;padding:clamp(26px,4vw,48px)}
+.modal-panel .actions{gap:14px;align-items:stretch}
+.modal-panel #back-modal{color:#fff!important;background:linear-gradient(120deg,#29112d,#171a34)!important;border:1px solid #ff73b4!important;text-shadow:0 1px 4px #000;box-shadow:0 0 18px #ff2a8324;font-weight:700;opacity:1!important}
+.modal-panel #back-modal:hover,.modal-panel #back-modal:focus-visible{background:#a21862!important;color:#fff!important;box-shadow:0 0 28px #ff2a8380;outline:2px solid #ffa1ce;outline-offset:3px}
+.modal-panel #modal-link{color:#fff!important;font-weight:700}
+.modal-panel .btn{justify-content:center;min-height:51px;line-height:1.4}
+.modal-panel h3{margin:18px 0 12px}.modal-panel p{margin:12px 0;color:#e4e5f0}
+/* Map: legend has its own area; map labels remain inside the board */
+.map-shell{grid-template-columns:minmax(0,1.35fr) minmax(290px,.85fr);gap:24px;align-items:stretch}
+.map-board{display:flex;flex-direction:column;justify-content:space-between;min-width:0;padding:22px 24px 20px;overflow:hidden}
+.map-board::after{display:none}
+.tokyo-map{max-height:430px;flex:1;min-height:0}
+.map-legend{position:relative;z-index:2;display:flex;gap:12px 22px;flex-wrap:wrap;margin:8px 0 0;padding:17px 0 2px;border-top:1px solid #6cfaff38;font-size:10px;line-height:1.5}
+.map-panel{padding:clamp(22px,3vw,34px);min-height:0;gap:22px}
+.map-panel h3{font-size:clamp(38px,4vw,57px)}
+.map-panel .map-cta{max-width:100%;white-space:normal;text-align:left;line-height:1.5}
+.district-map .section-top{margin-bottom:24px}
+/* Arcade: reduce excessive height and improve visual rhythm */
+.arcade-zone{padding-top:90px!important;padding-bottom:90px!important}
+.arcade-grid{gap:18px;margin-top:25px;align-items:start}
+.arcade-panel{padding:clamp(20px,2.4vw,28px);border-radius:24px;min-height:0}
+.arcade-panel h3{font-size:clamp(27px,3vw,34px)}
+.arcade-panel .intro{margin:10px 0 14px}
+.terminal-output{height:185px;min-height:0;font-size:12px;line-height:1.65}
+.terminal-entry{margin-top:10px}
+.maze-grid{max-width:300px;gap:3px;margin:10px auto}
+.maze-cell{border-radius:3px}
+.maze-status{min-height:20px;line-height:1.6}
+.maze-controls{margin-top:10px}
+.network-panel{grid-column:1/-1}
+/* Keyboard and mobile improvements */
+.tokyo-map .station:focus-visible circle{stroke:#fff;stroke-width:5}
+@media(max-width:850px){.map-shell{grid-template-columns:1fr}.tokyo-map{max-height:none}.map-panel{min-height:220px}.arcade-grid{grid-template-columns:1fr}.network-panel{grid-column:auto}.arcade-zone{padding-top:75px!important;padding-bottom:75px!important}}
+@media(max-width:540px){.map-board{padding:14px}.map-legend{gap:7px 14px;font-size:9px}.modal-panel .actions{flex-direction:column}.modal-panel .btn{width:100%}.arcade-zone{padding:70px 6%!important}.terminal-output{height:170px}.maze-grid{max-width:min(300px,100%)}}
+
+/* V13: full-viewport cinematic win fireworks */
+.maze-celebration{position:fixed!important;inset:0!important;width:100vw!important;height:100vh!important;pointer-events:none!important;z-index:99990!important}
+.victory-banner{position:fixed;left:50%;top:21%;transform:translate(-50%,-25%) scale(.8);opacity:0;pointer-events:none;z-index:99991;text-align:center;display:flex;flex-direction:column;gap:9px;align-items:center;transition:opacity .45s,transform .55s;filter:drop-shadow(0 0 30px #ff3ba5);width:min(90vw,650px)}
+.victory-banner.visible{opacity:1;transform:translate(-50%,0) scale(1)}
+.victory-banner strong{font:900 clamp(40px,8vw,105px)/.95 'Barlow Condensed',Impact,sans-serif;letter-spacing:2px;color:white;text-shadow:0 0 12px #ff36a3,0 0 35px #ff36a3,4px 5px 0 #7026b6}
+.victory-kicker,.victory-sub{font:700 clamp(11px,1.3vw,17px) 'DM Mono',monospace;letter-spacing:3px;color:#78fff5;text-shadow:0 0 14px #00faff}
+@media(prefers-reduced-motion:reduce){.victory-banner{transition:none}}
+
+/* V14: responsive and usability pass */
+html{scroll-padding-top:90px}
+body{overflow-x:hidden}
+*,*:before,*:after{box-sizing:border-box}
+img,svg,canvas{max-width:100%}
+:where(a,button,input,[role="button"]):focus-visible{outline:3px solid #7cffff!important;outline-offset:4px}
+.skip-to-content{position:fixed;left:12px;top:-80px;z-index:999999;padding:12px 18px;background:#ff2a83;color:white;border-radius:12px}
+.skip-to-content:focus{top:12px}
+.mobile-nav-toggle{display:none;border:1px solid #68faff66;border-radius:12px;background:#0a1725;color:#aaffff;padding:10px 14px;font-size:20px;cursor:pointer}
+.project,.skill,.arcade-panel,.map-board,.map-panel{min-width:0}
+.arcade-panel .terminal-output{max-height:220px}
+.maze-grid{width:min(100%,350px)}
+.district-map .map-board{overflow:hidden}
+.tokyo-map{min-width:0}
+.portal-shell,.modal-panel{max-height:calc(100dvh - 80px);overflow-y:auto}
+@media(max-width:1050px){
+ .top{padding-inline:4%!important;gap:12px}
+ .top nav{gap:12px!important}
+ .top nav a{font-size:10px!important;letter-spacing:1px!important}
+ .status{display:none}
+ .map-shell{grid-template-columns:minmax(0,1.15fr) minmax(250px,.85fr)}
+}
+@media(max-width:760px){
+ html{scroll-padding-top:74px}
+ .top{height:72px!important;min-height:72px;padding:0 5%!important;display:flex;justify-content:space-between;align-items:center}
+ .mobile-nav-toggle{display:block;margin-left:auto}
+ .top nav{display:none;position:absolute;top:calc(100% - 1px);left:0;right:0;z-index:1000;background:#080b17f7;border-bottom:1px solid #62faff55;padding:15px 6% 20px;flex-direction:column;align-items:stretch;gap:0!important;box-shadow:0 20px 35px #000a}
+ .top nav.mobile-open{display:flex}
+ .top nav a{padding:13px 10px;font-size:12px!important;letter-spacing:2px!important;border-bottom:1px solid #ffffff13}
+ section:not(.hero){padding:72px 5%!important}
+ .hero{height:auto;min-height:calc(100svh - 72px)}
+ .hero-content{padding:90px 6% 65px}
+ .hero h1{font-size:clamp(76px,18vw,130px);line-height:.85;overflow-wrap:anywhere}
+ .hero .subtitle{letter-spacing:2px}
+ .vertical,.scroll{display:none}
+ .section-top{flex-direction:column;align-items:flex-start;gap:12px}
+ h2{font-size:clamp(50px,12vw,82px);overflow-wrap:anywhere}
+ .project-grid{grid-template-columns:1fr!important}
+ .project-grid .project{grid-column:1/-1!important;min-height:300px}
+ .map-shell{grid-template-columns:minmax(0,1fr)}
+ .map-board{padding:10px}
+ .map-panel{min-height:250px;padding:23px}
+ .map-panel h3{font-size:clamp(38px,10vw,56px)}
+ .map-legend{gap:8px;font-size:9px}
+ .arcade-grid,.network-layout{grid-template-columns:minmax(0,1fr)}
+ .arcade-panel{padding:18px;border-radius:22px}
+ .arcade-panel h3{font-size:clamp(28px,8vw,38px)}
+ .network-panel{grid-column:auto}
+ .terminal-output{height:185px!important}
+ .maze-grid{max-width:320px}
+ .maze-controls button{min-height:44px;min-width:44px}
+ .modal,.portal{padding:12px!important}
+ .modal-panel{width:100%!important;max-width:100%!important;padding:24px!important}
+ .portal-shell{width:100%;max-width:100%;padding:25px!important}
+ .portal-title{font-size:clamp(52px,15vw,100px)!important;overflow-wrap:anywhere}
+ .portal-actions{flex-wrap:wrap}
+ .portal-actions button{max-width:100%;white-space:normal}
+}
+@media(max-width:390px){
+ .hero h1{font-size:70px}
+ .arcade-panel{padding:14px}
+ .terminal-entry{gap:5px}
+ .terminal-entry input{padding:10px;width:100px}
+ .terminal-entry button{padding:10px}
+ .maze-grid{gap:2px}
+ .map-board{padding:5px}
+}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto!important}
+ .ticker div,.tokyo-map .route{animation:none!important}
+ .project,.skill,.btn{transition:none!important}
+}
+
+/* V15: foldable hero feature, prominent but unobtrusive */
+.hero-fold{position:absolute;z-index:8;right:8%;top:50%;transform:translateY(-50%);width:min(360px,31vw);display:flex;flex-direction:column;align-items:flex-end;gap:12px}
+.hero-fold-trigger{width:100%;min-height:82px;border:1px solid #79ffffa8;border-radius:24px;background:linear-gradient(125deg,#081329ee,#25112fee);box-shadow:0 0 0 1px #ff42a42e,0 12px 45px #0009,0 0 32px #ff2b8545;color:#fff;display:flex;align-items:center;gap:14px;padding:14px 19px;cursor:pointer;text-align:left;transition:transform .25s,box-shadow .25s}
+.hero-fold-trigger:hover,.hero-fold-trigger:focus-visible{transform:translateY(-3px);box-shadow:0 15px 48px #000b,0 0 45px #ff2b8570}
+.fold-icon{width:53px;height:53px;flex:none;border-radius:17px;background:linear-gradient(135deg,#ff258b,#8d3aff);display:grid;place-items:center;font-size:31px;color:white;box-shadow:0 0 25px #ff258b88}
+.fold-trigger-text{flex:1;font:700 12px 'DM Mono',monospace;letter-spacing:1.4px;line-height:1.7}
+.fold-chevron{font-size:27px;color:#7bffff;transition:transform .25s}
+.hero-fold.is-open .fold-chevron{transform:rotate(180deg)}
+.hero-fold-panel{width:100%;max-height:0;opacity:0;overflow:hidden;visibility:hidden;pointer-events:none;border:0 solid #ff56a38a;border-radius:24px;background:linear-gradient(145deg,#090c1bf5,#210e2bf2);box-shadow:0 15px 50px #000a;transition:max-height .38s ease,opacity .3s ease,padding .3s ease; padding:0 22px}
+.hero-fold.is-open .hero-fold-panel{max-height:500px;opacity:1;visibility:visible;pointer-events:auto;padding:24px 22px;border-width:1px}
+.fold-topline{display:flex;justify-content:space-between;font:11px 'DM Mono',monospace;letter-spacing:2px;color:#6ffbff}
+.fold-topline span{color:#81ffc5}.fold-jp{font-size:26px;color:#ff6cb3;margin-top:20px;letter-spacing:4px}
+.hero-fold-panel h2{font:900 clamp(30px,3vw,42px)/1.05 'Barlow Condensed',sans-serif;color:#fff;margin:14px 0}
+.hero-fold-panel h2 em{color:#ff4b9b;font-style:normal}
+.hero-fold-panel p{color:#d9dcea;font-size:13px;line-height:1.8;margin:12px 0 18px}
+.fold-tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:20px}
+.fold-tags span{font:10px 'DM Mono',monospace;color:#8bffff;border:1px solid #8bffff66;padding:7px 9px;border-radius:20px}
+.fold-link{display:inline-flex;align-items:center;min-height:43px;padding:10px 15px;border-radius:11px;background:#ff258b;color:white;text-decoration:none;font:700 11px 'DM Mono',monospace;letter-spacing:1px}
+@media(max-width:1100px){.hero-fold{right:5%;width:min(330px,35vw)}.hero-fold-trigger{min-height:72px;padding:10px}.fold-trigger-text{font-size:10px}.fold-icon{width:46px;height:46px}}
+@media(max-width:760px){.hero-fold{position:relative;right:auto;top:auto;transform:none;width:min(100%,430px);margin:0 auto 42px;padding:0 4%}.hero-fold-trigger{min-height:70px}.hero-fold-panel{max-width:100%}.hero-fold.is-open .hero-fold-panel{max-height:550px}.hero{height:auto!important;min-height:100svh!important;display:flex;flex-direction:column;justify-content:center}.hero-content{width:100%;padding-bottom:25px!important}.hero h1{font-size:clamp(70px,15vw,110px)!important}}
+@media(prefers-reduced-motion:reduce){.hero-fold-trigger,.fold-chevron,.hero-fold-panel{transition:none!important}}
+
+/* V17: Anime-inspired 3D holographic ornaments around internship badge */
+.hero-fold{isolation:isolate;perspective:950px}
+.hero-fold-trigger,.hero-fold-panel{position:relative;z-index:2}
+.fold-3d-scene{position:absolute;inset:-105px -100px -105px -100px;z-index:1;pointer-events:none;perspective:900px;transform-style:preserve-3d;overflow:visible}
+.fold-3d-scene .orbital{position:absolute;left:50%;top:49%;width:calc(100% - 85px);height:calc(100% - 130px);border:1px solid #63f6ff55;border-radius:50%;transform:translate(-50%,-50%) rotateX(67deg) rotateZ(-20deg);box-shadow:0 0 26px #57f6ff22,inset 0 0 20px #fc4d9b12;animation:fold-orbit 15s linear infinite}
+.fold-3d-scene .orbital.second{width:85%;height:67%;border-color:#ff59b25c;transform:translate(-50%,-50%) rotateX(65deg) rotateZ(40deg);animation-duration:22s;animation-direction:reverse}
+.fold-holo{position:absolute;display:grid;place-items:center;border:1px solid #75f9ff8c;background:linear-gradient(145deg,#12253dcc,#29102bcb);box-shadow:0 0 23px #58f4ff44,inset 0 0 15px #ffffff0d;backdrop-filter:blur(5px);color:#eaffff;transform-style:preserve-3d;animation:holo-float 4.5s ease-in-out infinite}
+.fold-holo.sakura{left:1%;top:8%;width:73px;height:73px;border-radius:24px;font-size:40px;color:#ff89d0;transform:rotateY(-22deg) rotateZ(-14deg);animation-delay:-1s}
+.fold-holo.torii{right:1%;top:4%;width:65px;height:65px;border-radius:20px;font-size:34px;border-color:#ff73bb;color:#ff7bbb;animation-delay:-2.1s}
+.fold-holo.star{right:-1%;bottom:12%;width:64px;height:64px;border-radius:19px;font-size:38px;color:#7bfaff;animation-delay:-.7s}
+.fold-holo.cat{left:3%;bottom:8%;width:67px;height:67px;border-radius:21px;font-size:34px;border-color:#f8a0e1;color:#fff;animation-delay:-3.3s}
+.fold-petal{position:absolute;display:block;width:13px;height:19px;background:linear-gradient(140deg,#ffc4ea,#ff4d9b);border-radius:90% 10% 85% 10%;opacity:.8;filter:drop-shadow(0 0 8px #ff56b5);animation:petal-drift 8s linear infinite}
+.fold-petal.p1{left:15%;top:5%}.fold-petal.p2{left:88%;top:34%;animation-delay:-2.5s}.fold-petal.p3{left:27%;top:76%;animation-delay:-5s}.fold-petal.p4{left:75%;top:90%;animation-delay:-6.8s}
+.fold-energy{position:absolute;inset:13% 10%;border-radius:38%;background:radial-gradient(ellipse,#ff3c981a,transparent 68%);filter:blur(10px);animation:energy-breathe 4s ease-in-out infinite}
+.hero-fold.is-open .fold-3d-scene{filter:brightness(1.25)}
+.hero-fold.is-open .fold-holo{box-shadow:0 0 34px #ff58b37a,inset 0 0 15px #ffffff0c}
+@keyframes holo-float{0%,100%{translate:0 0;rotate:-5deg}50%{translate:0 -17px;rotate:8deg}}
+@keyframes petal-drift{0%{translate:0 -12px;rotate:0deg;opacity:0}12%{opacity:.85}80%{opacity:.75}100%{translate:40px 135px;rotate:320deg;opacity:0}}
+@keyframes fold-orbit{0%{rotate:0deg}100%{rotate:360deg}}
+@keyframes energy-breathe{0%,100%{opacity:.45;scale:.94}50%{opacity:1;scale:1.08}}
+@media(max-width:1100px){.fold-3d-scene{inset:-65px -35px}.fold-holo.sakura,.fold-holo.cat,.fold-holo.torii,.fold-holo.star{width:46px;height:46px;font-size:25px;border-radius:14px}}
+@media(max-width:760px){.hero-fold{isolation:isolate}.fold-3d-scene{inset:-25px -8px;opacity:.75}.fold-holo.sakura{left:0;top:0}.fold-holo.torii{right:0;top:0}.fold-holo.cat{left:0;bottom:0}.fold-holo.star{right:0;bottom:0}.fold-3d-scene .orbital{width:75%;height:85%}}
+@media(prefers-reduced-motion:reduce){.fold-3d-scene *{animation:none!important}.fold-holo{translate:0 0!important}}
+
+/* V18: animated anime guide pointing to internship card */
+.hero-fold{overflow:visible}
+.anime-guide{position:absolute;right:calc(100% - 15px);bottom:-55px;width:clamp(180px,24vw,320px);height:clamp(280px,38vw,420px);z-index:1;pointer-events:none;transform-origin:55% 80%;animation:anime-guide-hover 5s ease-in-out infinite;filter:drop-shadow(0 0 20px #ff59b166)}
+.anime-guide img{display:block;width:100%;height:100%;object-fit:contain;object-position:bottom;transform:scaleX(1)}
+.anime-guide-glow{position:absolute;inset:20% 15% 10%;border-radius:50%;border:2px solid #ff56af99;transform:rotateX(72deg);box-shadow:0 0 22px #ff4eaa88;animation:anime-glow 4s ease-in-out infinite}
+.hero-fold.is-open .anime-guide{animation-duration:3s;filter:drop-shadow(0 0 35px #ff59b1aa)}
+@keyframes anime-guide-hover{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-13px) rotate(1deg)}}
+@keyframes anime-glow{0%,100%{opacity:.4;scale:.9}50%{opacity:.85;scale:1.05}}
+@media(max-width:1200px){.anime-guide{right:calc(100% - 5px);width:clamp(155px,22vw,240px);height:310px;bottom:-25px}}
+@media(max-width:760px){.anime-guide{position:relative;right:auto;bottom:auto;width:min(195px,55vw);height:215px;margin:-20px auto -22px;z-index:1}.anime-guide img{object-fit:contain}.hero-fold{align-items:stretch}.fold-3d-scene{z-index:0}}
+@media(max-width:400px){.anime-guide{width:155px;height:180px}}
+@media(prefers-reduced-motion:reduce){.anime-guide,.anime-guide-glow{animation:none!important}}
+@media(prefers-reduced-motion:reduce){.anime-guide img{content:url("assets/anime-pointing-still.png")}}
+/* V20: smaller animated pointing assistant */
+.anime-guide{width:clamp(140px,17vw,225px)!important;height:310px!important;right:calc(100% - 12px)!important;bottom:-28px!important}
+.anime-guide img{object-fit:contain!important;object-position:center bottom}
+@media(max-width:760px){.anime-guide{position:relative!important;right:auto!important;bottom:auto!important;width:155px!important;height:185px!important;margin:-10px auto -10px!important}}
+@media(max-width:400px){.anime-guide{width:135px!important;height:165px!important}}
+
+/* V21: anime slightly larger, lowered approximately 1 cm (38px at 96dpi) */
+.anime-guide{width:clamp(165px,20vw,260px)!important;height:350px!important;bottom:-66px!important}
+@media(max-width:760px){.anime-guide{width:185px!important;height:220px!important;margin:28px auto -10px!important;bottom:auto!important}}
+@media(max-width:400px){.anime-guide{width:160px!important;height:195px!important;margin:28px auto -10px!important}}
+
+/* V22: larger animated character, preserve lowered placement */
+.anime-guide{width:clamp(215px,26vw,340px)!important;height:455px!important;bottom:-66px!important}
+@media(max-width:760px){.anime-guide{width:235px!important;height:285px!important;bottom:auto!important;margin:28px auto -10px!important}}
+@media(max-width:400px){.anime-guide{width:205px!important;height:250px!important}}
+</style></head><body><canvas id="rain" aria-hidden="true"></canvas><a class="skip-to-content" href="#tokyo-map">Aller au contenu</a><header class="top" id="nav"><a class="logo" href="#home">SG<b>.EXE</b></a><button class="mobile-nav-toggle" type="button" id="mobile-nav-toggle" aria-expanded="false" aria-controls="site-navigation" aria-label="Ouvrir le menu">☰</button><nav id="site-navigation" aria-label="Navigation principale"><a href="#tokyo-map">Tokyo Map</a><a href="#projects">Projets</a><a href="#about">À propos</a><a href="#skills">Stack</a><a href="#arcade">Arcade</a><a href="#contact">Contact</a></nav><div class="status">SYSTEM ONLINE</div></header><main><section class="hero" id="home"><div class="city" id="city"></div><div class="hero-content"><div class="eyebrow">東京 // TOKYO · DIGITAL UNIVERSE · 2026</div><h1>SARAH<span>GHOUAR</span></h1><div class="subtitle">Code. Create. Disrupt.</div><p>Développement, data & intelligence artificielle. J'imagine, je construis et je transforme des idées en expériences numériques.</p><div class="actions"><a class="btn primary" href="#projects">Explorer mes projets <span>↗</span></a><a class="btn secondary" href="https://github.com/SARGHR" target="_blank" rel="noopener noreferrer">GitHub <span>↗</span></a></div></div><div class="hero-fold" id="hero-fold"><div class="fold-3d-scene" aria-hidden="true"><div class="fold-energy"></div><div class="orbital"></div><div class="orbital second"></div><span class="fold-holo sakura">✿</span><span class="fold-holo torii">⛩</span><span class="fold-holo star">✧</span><span class="fold-holo cat">ฅ</span><i class="fold-petal p1"></i><i class="fold-petal p2"></i><i class="fold-petal p3"></i><i class="fold-petal p4"></i></div>
+ <div class="anime-guide" aria-hidden="true"><img src="assets/anime-pointing.webp" alt="" loading="eager" decoding="async"><span class="anime-guide-glow"></span></div>
+ <button type="button" class="hero-fold-trigger" id="hero-fold-trigger" aria-expanded="false" aria-controls="hero-fold-panel" aria-label="Déplier les informations de recherche de stage" title="Découvrir ma recherche de stage">
+  <span class="fold-icon" aria-hidden="true">✦</span><span class="fold-trigger-text">À LA RECHERCHE D’UN STAGE</span><span class="fold-chevron" aria-hidden="true">⌄</span>
+ </button>
+ <div class="hero-fold-panel" id="hero-fold-panel" inert>
+  <div class="fold-topline">SG.EXE <span>● ONLINE</span></div>
+  <div class="fold-jp" lang="ja">次の挑戦へ</div>
+  <h2>STAGE M1<br><em>INFORMATIQUE.</em></h2>
+  <p>Étudiante en Master 1 Informatique à l’Université Lumière Lyon 2, je recherche un stage à partir du 30 mars 2027, jusqu’au 31 août 2027 au plus tard. Intéressée par l’analyse de données, la Business Intelligence et les systèmes d’information, je souhaite contribuer à des projets concrets au sein d’une équipe.</p>
+  <div class="fold-tags"><span>DATA / BI</span><span>SYSTÈMES D’INFORMATION</span><span>WEB</span></div>
+  <a href="#projects" class="fold-link">VOIR MES PROJETS ↗</a>
+ </div>
+</div><div class="vertical">未来はここから始まる · THE FUTURE STARTS HERE</div><a class="scroll" href="#projects">SCROLL TO EXPLORE</a></section><div class="ticker" aria-hidden="true"><div>✦ BUILD THE FUTURE ✦ CREATE WITHOUT LIMITS ✦ PYTHON / DATA / AI / WEB ✦ TOKYO AFTER DARK ✦ BUILD THE FUTURE ✦ CREATE WITHOUT LIMITS ✦ PYTHON / DATA / AI / WEB ✦ TOKYO AFTER DARK ✦ </div></div>
+<section class="district-map" id="tokyo-map">
+ <div class="section-top reveal"><div><div class="section-id">01 / INTERACTIVE CITY DIRECTORY</div><h2>TOKYO <em>NETWORK.</em></h2></div><p class="intro">Cinq stations, cinq univers informatiques. Sélectionne une station et entre dans son quartier : chaque projet possède son propre portail immersif.</p></div>
+ <div class="map-shell">
+  <div class="map-board">
+   <svg class="tokyo-map" viewBox="0 0 800 510" role="group" aria-label="Plan créatif interactif de cinq quartiers de Tokyo, non géographique">
+    <defs><pattern id="city-grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" stroke="#6cfaff" stroke-opacity=".09" fill="none"/></pattern></defs>
+    <rect x="0" y="0" width="800" height="510" rx="22" fill="url(#city-grid)"/>
+    <path class="route" d="M95 115L250 165L390 115L565 180L680 310"/>
+    <path class="route pink" d="M95 115L225 340L390 115L565 180"/>
+    <path class="route yellow" d="M225 340L450 385L680 310"/>
+    <g class="station selected" data-district="0" tabindex="0" role="button" aria-label="Shinjuku, Phishing Detector" transform="translate(95 115)"><circle r="19"/><text x="-40" y="-35">SHINJUKU</text><text class="station-jp" x="-32" y="-18">新宿</text></g>
+    <g class="station" data-district="1" tabindex="0" role="button" aria-label="Harajuku, Maison Rose" transform="translate(250 165)"><circle r="19"/><text x="-32" y="-35">HARAJUKU</text><text class="station-jp" x="-20" y="-18">原宿</text></g>
+    <g class="station" data-district="2" tabindex="0" role="button" aria-label="Akihabara, Maze Bloom" transform="translate(390 115)"><circle r="19"/><text x="-40" y="-35">AKIHABARA</text><text class="station-jp" x="-20" y="-18">秋葉原</text></g>
+    <g class="station" data-district="3" tabindex="0" role="button" aria-label="Shibuya, API Insight X" transform="translate(565 180)"><circle r="19"/><text x="-30" y="-35">SHIBUYA</text><text class="station-jp" x="-15" y="-18">渋谷</text></g>
+    <g class="station" data-district="4" tabindex="0" role="button" aria-label="Odaiba, SignaVision" transform="translate(680 310)"><circle r="19"/><text x="-20" y="47">ODAIBA</text><text class="station-jp" x="-14" y="65">お台場</text></g>
+    <text x="24" y="480" fill="#80dfe9" font-family="monospace" font-size="12" letter-spacing="2">SG.EXE / CREATIVE ROUTE</text>
+   </svg>
+   <div class="map-legend"><span>TECH LINE</span><span>CREATIVE LINE</span><span>EXPLORATION LINE</span></div>
+  </div>
+  <aside class="map-panel" aria-live="polite">
+   <div><div class="district-code" id="map-code">STATION 01 / 新宿</div><h3 id="map-name">SHINJUKU</h3><p id="map-project">Phishing Detector</p><p id="map-desc">Un centre de cybersécurité où les modèles de Machine Learning détectent les sites suspects.</p></div>
+   <button type="button" class="map-cta" id="map-explore">EXPLORER LE PROJET ↗</button>
+  </aside>
+ </div>
+ <p style="margin-top:18px;color:#b6c3d7;font-size:12px">Plan artistique inspiré de Tokyo : les stations et les lignes ne représentent pas les distances ou itinéraires réels.</p>
+</section>
+<section class="projects" id="projects"><div class="section-top reveal"><div><div class="section-id">01 / SELECTED WORKS</div><h2>THE <em>PROJECTS</em></h2></div><p class="intro">Cinq univers. Cinq façons de résoudre des problèmes. Clique sur une vitrine pour découvrir ce qui se cache derrière.</p></div><div class="project-grid" id="project-grid"></div></section><section class="about" id="about"><div class="reveal"><div class="section-id">02 / THE PERSON BEHIND THE CODE</div><h2>BEYOND<br><em>THE SCREEN.</em></h2><p>Je suis <strong>Sarah Ghouar</strong>, étudiante en Master 1 Informatique à l'Université Lumière Lyon 2. J'aime explorer les intersections entre <strong>développement logiciel, data, intelligence artificielle et systèmes d'information</strong>.</p><p>Ce portfolio est mon terrain d'expérimentation : une rencontre entre mon univers technique et ma créativité.</p><a class="btn secondary" href="#skills">Découvrir ma stack ↗</a></div><div class="kanji" aria-hidden="true">未来<br>技術</div></section><section class="skills" id="skills"><div class="reveal"><div class="section-id">03 / TECH ARSENAL</div><h2>MY <em>STACK.</em></h2><p class="intro">Des langages aux systèmes intelligents : les outils avec lesquels je construis.</p></div><div class="skill-grid"><div class="skill reveal" style="--skill-photo:url(assets/bg-languages.webp)"><div class="icon">⌘</div><h3>Languages</h3><div class="skill-demo" aria-hidden="true"><svg viewBox="0 0 300 85"><text x="10" y="25" fill="#6cfaff" font-size="15" font-family="monospace">&gt; python main.py</text><text x="10" y="53" fill="#ff2a83" font-size="13" font-family="monospace">BUILD SUCCESSFUL</text><rect class="terminal-cursor" x="10" y="65" width="10" height="14" fill="#6cfaff"/></svg></div><p>Python · C++ · JavaScript · PHP · SQL · HTML / CSS</p><button class="skill-action" type="button" data-skill="0">▶ LANCER LA DÉMO</button><div class="skill-feedback" aria-live="polite">SYSTEM READY_</div></div><div class="skill reveal" style="--skill-photo:url(assets/bg-data.webp)"><div class="icon">◈</div><h3>Data & AI</h3><div class="skill-demo" aria-hidden="true"><svg viewBox="0 0 300 85"><g fill="#6cfaff"><rect class="bar" x="25" y="40" width="25" height="40"/><rect class="bar" x="75" y="17" width="25" height="63" style="animation-delay:.3s"/><rect class="bar" x="125" y="30" width="25" height="50" style="animation-delay:.6s"/><rect class="bar" x="175" y="6" width="25" height="74" style="animation-delay:.9s"/></g><path d="M10 80h230" stroke="#ffffff55"/></svg></div><p>Pandas · NumPy · scikit-learn · Matplotlib · Machine Learning</p><button class="skill-action" type="button" data-skill="1">▶ LANCER LA DÉMO</button><div class="skill-feedback" aria-live="polite">SYSTEM READY_</div></div><div class="skill reveal" style="--skill-photo:url(assets/bg-databases.webp)"><div class="icon">▣</div><h3>Databases</h3><div class="skill-demo" aria-hidden="true"><svg viewBox="0 0 300 85"><g fill="none" stroke="#6cfaff" stroke-width="2"><ellipse cx="150" cy="18" rx="85" ry="15"/><path d="M65 18v45q0 15 85 15t85-15V18M65 40q0 15 85 15t85-15"/></g><g fill="#ff2a83"><circle class="node" cx="150" cy="18" r="5"/><circle class="node" cx="95" cy="55" r="5"/><circle class="node" cx="204" cy="55" r="5"/></g></svg></div><p>PostgreSQL · MariaDB · MySQL · SQL procédural</p><button class="skill-action" type="button" data-skill="2">▶ LANCER LA DÉMO</button><div class="skill-feedback" aria-live="polite">SYSTEM READY_</div></div><div class="skill reveal" style="--skill-photo:url(assets/bg-development.webp)"><div class="icon">⌁</div><h3>Development</h3><div class="skill-demo" aria-hidden="true"><svg viewBox="0 0 300 85"><g fill="none" stroke="#6cfaff" stroke-width="2"><circle cx="150" cy="42" r="30"/><circle class="spin" cx="150" cy="42" r="39" stroke-dasharray="12 10"/><path d="M150 12v60M120 42h60"/></g><text x="200" y="47" font-size="12" fill="#ff2a83" font-family="monospace">git push</text></svg></div><p>Git · GitHub · Linux · VS Code · Tests Python</p><button class="skill-action" type="button" data-skill="3">▶ LANCER LA DÉMO</button><div class="skill-feedback" aria-live="polite">SYSTEM READY_</div></div><div class="skill reveal" style="--skill-photo:url(assets/bg-design.webp)"><div class="icon">◇</div><h3>Design & Web</h3><div class="skill-demo" aria-hidden="true"><svg viewBox="0 0 300 85"><rect x="20" y="8" width="260" height="68" rx="5" stroke="#6cfaff" fill="none"/><rect x="30" y="20" width="90" height="43" fill="#ff2a8344"/><rect x="130" y="20" width="140" height="9" fill="#6cfaff66"/><rect x="130" y="36" width="100" height="6" fill="#ffffff44"/><rect x="130" y="49" width="130" height="6" fill="#ffffff44"/></svg></div><p>Interfaces web · Responsive design · Figma · UX</p><button class="skill-action" type="button" data-skill="4">▶ LANCER LA DÉMO</button><div class="skill-feedback" aria-live="polite">SYSTEM READY_</div></div><div class="skill reveal" style="--skill-photo:url(assets/bg-exploration.webp)"><div class="icon">⟡</div><h3>Exploration</h3><div class="skill-demo" aria-hidden="true"><svg viewBox="0 0 300 85"><g fill="none" stroke="#6cfaff" stroke-width="2"><circle cx="75" cy="42" r="19"/><circle cx="150" cy="18" r="14"/><circle cx="150" cy="68" r="14"/><circle cx="225" cy="42" r="19"/><path d="M94 37 136 21M94 47 136 65M164 21 206 37M164 65 206 47"/></g><g fill="#ff2a83"><circle class="node" cx="75" cy="42" r="6"/><circle class="node" cx="150" cy="18" r="6"/><circle class="node" cx="150" cy="68" r="6"/><circle class="node" cx="225" cy="42" r="6"/></g></svg></div><p>Computer Vision · APIs REST · Sécurité · Systèmes d'information</p><button class="skill-action" type="button" data-skill="5">▶ LANCER LA DÉMO</button><div class="skill-feedback" aria-live="polite">SYSTEM READY_</div></div></div></section>
+<section class="arcade-zone" id="arcade">
+ <div class="section-top reveal"><div><div class="section-id">04 / INTERACTIVE LABORATORY</div><h2>PLAY THE <em>CODE.</em></h2></div><p class="intro">Trois expériences à tester. Pas seulement des animations : tu peux interagir avec mon univers.</p></div>
+ <div class="arcade-grid">
+  <div class="arcade-panel"><div class="micro">SHINJUKU / TERMINAL 01</div><h3>Cyber Terminal_</h3><p class="intro">Entre <code>help</code> pour voir les commandes.</p><div class="terminal-output" id="terminal-output" role="log" aria-live="polite">&gt; SG.EXE terminal connecté
+&gt; Tape help pour commencer.</div><form class="terminal-entry" id="terminal-form"><span>❯</span><input id="terminal-input" aria-label="Commande du terminal" autocomplete="off" spellcheck="false" maxlength="80" placeholder="help" /><button type="submit">EXEC</button></form></div>
+  <div class="arcade-panel maze-panel"><canvas class="maze-celebration" id="maze-fireworks" aria-hidden="true"></canvas><div class="micro">AKIHABARA / ARCADE 02</div><h3>Maze Bloom Mini</h3><div class="maze-status" id="maze-status" aria-live="polite">Atteins la case cyan. Utilise les flèches ou ZQSD.</div><div class="maze-grid" id="maze-grid" aria-label="Mini labyrinthe interactif"></div><div class="maze-controls"><button type="button" data-move="up" aria-label="Haut">↑</button><button type="button" data-move="left" aria-label="Gauche">←</button><button type="button" data-move="down" aria-label="Bas">↓</button><button type="button" data-move="right" aria-label="Droite">→</button><button type="button" id="maze-reset">↻</button></div></div>
+  <div class="arcade-panel network-panel"><div class="micro">TOKYO TECH / NETWORK 03</div><h3>Skill Constellation</h3><div class="network-layout"><svg class="network-svg" id="network-svg" viewBox="0 0 640 320" role="img" aria-label="Réseau interactif de compétences"></svg><div class="network-details" id="network-details" aria-live="polite"><strong>Choisis une compétence</strong><p>Clique sur un nœud pour voir les technologies et les projets associés.</p></div></div></div>
+ </div>
+</section>
+<section class="contact" id="contact"><div class="reveal"><div class="section-id">04 / ESTABLISH CONNECTION</div><h2>LET'S <em>CONNECT.</em></h2><p>Une idée, un projet, une conversation autour de la tech ? Retrouve-moi dans le monde réel, ou plutôt sur GitHub et LinkedIn.</p><div class="actions"><a class="btn primary" href="https://github.com/SARGHR" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a class="btn secondary" href="https://www.linkedin.com/in/sarah-ghouar-06379a2a4/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div></div></section></main><footer><span>© 2026 SARAH GHOUAR // SG.EXE</span><span>DESIGNED IN THE NEON // BUILT WITH CODE</span><a href="#home">BACK TO TOP ↑</a></footer><div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title"><div class="modal-panel"><button class="modal-close" id="close-modal" aria-label="Fermer">×</button><div class="section-id" id="modal-num"></div><h3 id="modal-title"></h3><p id="modal-desc"></p><div class="tags" id="modal-tags"></div><div class="actions" style="margin-top:35px"><a class="btn primary" id="modal-link" target="_blank" rel="noopener noreferrer">Explorer sur GitHub ↗</a><button class="btn secondary" id="back-modal" type="button">Retour aux projets ←</button></div></div></div>
+<div class="portal" id="district-portal" role="dialog" aria-modal="true" aria-labelledby="portal-title" aria-hidden="true">
+ <div class="portal-backdrop" aria-hidden="true"></div>
+ <button class="portal-close" id="portal-close" type="button" aria-label="Fermer le quartier">✕ FERMER</button>
+ <div class="portal-shell"><div class="portal-content"><div class="portal-eyebrow" id="portal-eyebrow">TOKYO // DISTRICT 01</div><h2 class="portal-title" id="portal-title">SHINJUKU</h2><div class="portal-project" id="portal-project">Phishing Detector</div><p class="portal-description" id="portal-description"></p><div class="portal-actions"><button type="button" id="portal-open-project">VOIR LE PROJET ↗</button><button type="button" class="portal-secondary" id="portal-next">QUARTIER SUIVANT →</button></div></div><div class="portal-sign" id="portal-sign" aria-hidden="true">新宿</div></div>
+ <div class="portal-index" id="portal-index">01 / 05 — SG.EXE</div><div class="portal-loading" aria-hidden="true"></div>
+</div>
+<script>
+const projects=[{title:'Phishing Detector',number:'01 / SECURITY DISTRICT',desc:'Détection de sites de phishing avec Machine Learning et interprétabilité des prédictions. Une exploration de la cybersécurité par les données.',tags:['Python','Random Forest','XGBoost','SHAP','Streamlit'],art:'防',accent:'#ff2a83',glow:'#d4156a77',url:'https://github.com/SARGHR'},{title:'Maison Rose',number:'02 / DIGITAL BOUTIQUE',desc:'Boutique e-commerce conçue en PHP orienté objet avec une base de données relationnelle et une interface de gestion.',tags:['PHP POO','MariaDB','HTML','CSS','JavaScript'],art:'店',accent:'#ff75c6',glow:'#b0248677',url:'https://github.com/SARGHR/maison-rose-v3'},{title:'Maze Bloom',number:'03 / ARCADE ZONE',desc:'Générateur et solveur de labyrinthes en C++ : recherche de chemins, exploration et algorithmes BFS/DFS.',tags:['C++','BFS','DFS','Algorithms'],art:'迷',accent:'#6cfaff',glow:'#15bed077',url:'https://github.com/SARGHR/maze-bloom-cpp'},{title:'API Insight X',number:'04 / DATA TERMINAL',desc:'Analyseur d’API REST : temps de réponse, codes HTTP, score de qualité, recommandations et historique.',tags:['PHP','MVC','cURL','JSON','MariaDB'],art:'網',accent:'#a18bff',glow:'#5e4ad077',url:'https://github.com/SARGHR/api-insight-x'},{title:'SignaVision',number:'05 / VISION LAB',desc:'Reconnaissance de panneaux routiers à l’aide de techniques de vision par ordinateur.',tags:['Python','OpenCV','NumPy','Computer Vision'],art:'視',accent:'#6cfaff',glow:'#1696bb77',url:'https://github.com/SARGHR'}];
+
+const visuals=[
+`<svg viewBox="0 0 420 300"><g fill="none" stroke="#ff2a83" stroke-width="2"><path d="M210 28 338 85v86q-12 70-128 114Q92 242 82 171V85z"/><path d="M210 64 302 104v66q-8 47-92 82-85-34-92-82v-66z" stroke-dasharray="8 8"/><circle cx="210" cy="150" r="57"/><path d="m185 150 18 18 40-48" stroke-width="9"/></g><g fill="#6cfaff" font-size="12" font-family="monospace"><text x="130" y="20">SYSTEM // ACTIVE</text><text x="133" y="295">SCAN 00110101</text></g></svg>`,
+`<svg viewBox="0 0 420 300"><g fill="none" stroke="#ff75c6" stroke-width="3"><path d="M90 92h250l-17 170H107z"/><path d="M155 110V76q0-60 55-60t55 60v34"/><path d="M90 92h250"/></g><text x="210" y="195" text-anchor="middle" font-family="serif" font-size="52" fill="#ff75c6">MR</text><g fill="#ffb8df"><circle cx="122" cy="120" r="4"/><circle cx="297" cy="120" r="4"/></g></svg>`,
+`<svg viewBox="0 0 420 300"><g fill="none" stroke="#6cfaff" stroke-width="8" stroke-linecap="square"><path d="M70 32h275v236H70zM120 32v50h95v52h-95v53h150v-53h75M70 135h50M175 187v81M270 187v45h75M215 82h95M120 232h55"/></g><circle cx="330" cy="251" r="10" fill="#ff2a83"/><text x="84" y="23" fill="#6cfaff" font-size="12" font-family="monospace">BFS / DFS</text></svg>`,
+`<svg viewBox="0 0 420 300"><rect x="55" y="45" width="325" height="225" rx="8" fill="#15152c" stroke="#a18bff" stroke-width="3"/><g font-family="monospace" font-size="15" fill="#bcb2ff"><text x="80" y="78">GET /api/health</text><text x="80" y="112" fill="#6cfaff">200 OK</text><text x="80" y="143">LATENCY  82ms</text><text x="80" y="174">QUALITY  96/100</text></g><path d="M80 229l34-17 31 8 34-46 33 29 34-22 35 12 41-44" fill="none" stroke="#6cfaff" stroke-width="4"/><circle cx="322" cy="149" r="5" fill="#ff2a83"/></svg>`,
+`<svg viewBox="0 0 420 300"><g stroke="#6cfaff" fill="none" stroke-width="2"><rect x="70" y="35" width="290" height="230" rx="8"/><path d="M70 70h290M105 35v230M325 35v230" opacity=".35"/><circle cx="215" cy="151" r="80" stroke-dasharray="5 7"/></g><path d="M210 78 274 194H146z" fill="#fa364f" stroke="white" stroke-width="8"/><text x="210" y="168" font-family="monospace" font-size="48" text-anchor="middle" fill="white">!</text><text x="80" y="285" font-family="monospace" font-size="13" fill="#6cfaff">OBJECT DETECTED 99.2%</text></svg>`];
+const districtImages=['bg-phishing.webp','bg-maison.webp','bg-maze.webp','bg-api.webp','bg-vision.webp'];
+const grid=document.getElementById('project-grid');grid.innerHTML=projects.map((p,i)=>`<article class="project reveal" tabindex="0" role="button" aria-label="Découvrir ${p.title}" data-index="${i}" style="--accent:${p.accent};--glow:${p.glow};--district-bg:url(assets/${districtImages[i]})"><div class="project-stage" aria-hidden="true">${visuals[i]}${i===0?'<div class="scanline"></div>':i===2?'<div class="maze-runner"></div>':i===3?'<div class="pulse-line"></div>':i===4?'<div class="target"></div>':''}</div><div class="number">${p.number}</div><span class="district-hint">[ INTERACTIVE DISTRICT ]</span><div><h3>${p.title}</h3><p>${p.desc}</p><div class="tags">${p.tags.map(t=>`<span>${t}</span>`).join('')}</div></div><span class="open" aria-hidden="true">↗</span></article>`).join('');
+const modal=document.getElementById('modal');let lastFocus;function openProject(i){const p=projects[i];lastFocus=document.activeElement;document.getElementById('modal-num').textContent=p.number;document.getElementById('modal-title').textContent=p.title;document.getElementById('modal-desc').textContent=p.desc;document.getElementById('modal-tags').innerHTML=p.tags.map(t=>`<span>${t}</span>`).join('');document.getElementById('modal-link').href=p.url;modal.classList.add('active');document.body.style.overflow='hidden';document.getElementById('close-modal').focus()}function closeProject(){modal.classList.remove('active');document.body.style.overflow='';lastFocus?.focus()}grid.addEventListener('click',e=>{const c=e.target.closest('[data-index]');if(c)openProject(+c.dataset.index)});grid.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&e.target.matches('[data-index]')){e.preventDefault();openProject(+e.target.dataset.index)}});document.getElementById('close-modal').onclick=closeProject;document.getElementById('back-modal').onclick=closeProject;modal.addEventListener('click',e=>{if(e.target===modal)closeProject()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('active'))closeProject();if(e.key==='Tab'&&modal.classList.contains('active')){const focusable=[...modal.querySelectorAll('button,a[href]')];const first=focusable[0],last=focusable[focusable.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}}});
+const observer=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}}),{threshold:.1});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));const city=document.getElementById('city');const nav=document.getElementById('nav');const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;let mouseX=0,mouseY=0;window.addEventListener('pointermove',e=>{mouseX=(e.clientX/innerWidth-.5)*12;mouseY=(e.clientY/innerHeight-.5)*10},{passive:true});function onScroll(){nav.classList.toggle('scrolled',scrollY>40);if(!reduced&&scrollY<innerHeight*1.5)city.style.transform=`translate3d(${mouseX}px,${mouseY+Math.min(scrollY*.17,110)}px,0) scale(1.10)`}addEventListener('scroll',onScroll,{passive:true});onScroll();
+if(!reduced){const canvas=document.getElementById('rain'),ctx=canvas.getContext('2d');let drops=[],raf;function resize(){const dpr=Math.min(devicePixelRatio||1,2);canvas.width=innerWidth*dpr;canvas.height=innerHeight*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);drops=Array.from({length:Math.min(75,Math.floor(innerWidth/18))},()=>({x:Math.random()*innerWidth,y:Math.random()*innerHeight,s:3+Math.random()*7,l:8+Math.random()*18}))}resize();addEventListener('resize',resize);function draw(){ctx.clearRect(0,0,innerWidth,innerHeight);ctx.strokeStyle='#a3eaff';ctx.lineWidth=.7;for(const d of drops){ctx.beginPath();ctx.moveTo(d.x,d.y);ctx.lineTo(d.x-3,d.y+d.l);ctx.stroke();d.y+=d.s;if(d.y>innerHeight){d.y=-30;d.x=Math.random()*innerWidth}}raf=requestAnimationFrame(draw)}draw();document.addEventListener('visibilitychange',()=>{if(document.hidden)cancelAnimationFrame(raf);else draw()})}
+
+const demos=[['> python main.py','✓ 5 modules loaded','✓ Execution successful'],['Dataset: 1200 rows','Model trained: 94.6%','✓ Analysis complete'],['CONNECTING PostgreSQL...','SELECT * FROM projects;','✓ 5 rows returned'],['git status: clean','git commit -m neon','✓ Pushed to origin/main'],['Rendering responsive UI...','Breakpoints: 3 tested','✓ Layout verified'],['Initializing neural network...','Inference completed','✓ Object detected']];
+document.querySelectorAll('[data-skill]').forEach(btn=>btn.addEventListener('click',()=>{const out=btn.nextElementSibling;const lines=demos[+btn.dataset.skill];out.textContent='> '+lines[0];if(matchMedia('(prefers-reduced-motion: reduce)').matches){out.textContent=lines.join(' · ');return}btn.disabled=true;let i=1;const step=()=>{if(!btn.isConnected)return;if(i<lines.length){out.textContent=lines[i++];setTimeout(step,800)}else btn.disabled=false};setTimeout(step,650)}));
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches){const light=document.createElement('div');light.className='cursor-light';light.setAttribute('aria-hidden','true');document.body.append(light);addEventListener('pointermove',e=>{light.style.left=e.clientX+'px';light.style.top=e.clientY+'px'},{passive:true})}
+
+// V7: terminal local en liste blanche — aucune commande système exécutée.
+(function(){
+ const output=document.getElementById('terminal-output'),input=document.getElementById('terminal-input');
+ const replies={
+ help:'COMMANDES : help, about, projects, skills, github, linkedin, tokyo, clear',
+ about:'Sarah Ghouar — informatique, développement, Data & IA.',
+ projects:'01 Phishing Detector\n02 Maison Rose\n03 Maze Bloom\n04 API Insight X\n05 SignaVision',
+ skills:'Python · C++ · JavaScript · PHP · SQL · ML · Git · PostgreSQL',
+ github:'GitHub : github.com/SARGHR (utilise le bouton GitHub du site)',
+ linkedin:'LinkedIn : consulte le bouton de contact.',
+ tokyo:'東京 — Bienvenue dans NEON TOKYO. Explore les quartiers !'
+ };
+ document.getElementById('terminal-form').addEventListener('submit',e=>{
+ e.preventDefault();const command=input.value.trim().toLowerCase();if(!command)return;
+ if(command==='clear')output.textContent='';
+ else output.textContent+='\n> '+command+'\n'+(replies[command]||'Commande inconnue. Tape help.');
+ output.scrollTop=output.scrollHeight;input.value='';
+ });
+})();
+(function(){
+ const layout=[
+ '11111111111',
+ '10000010001',
+ '10111010101',
+ '10100000101',
+ '10101111101',
+ '10001000001',
+ '11101011101',
+ '10001010001',
+ '10111010101',
+ '10000000001',
+ '11111111111'];
+ const grid=document.getElementById('maze-grid'),status=document.getElementById('maze-status');
+
+ const fireworksCanvas=document.getElementById('maze-fireworks');
+ // A full-screen, pointer-transparent celebration layer for the win only.
+ document.body.appendChild(fireworksCanvas);
+ const fwctx=fireworksCanvas.getContext('2d');
+ const victoryBanner=document.createElement('div');
+ victoryBanner.className='victory-banner';victoryBanner.setAttribute('role','status');
+ victoryBanner.innerHTML='<span class="victory-kicker">✦ AKIHABARA ARCADE ✦</span><strong>LEVEL CLEARED!</strong><span class="victory-sub">MISSION ACCOMPLIE · ✨ 🎆 ✨</span>';
+ document.body.appendChild(victoryBanner);
+ let fwFrame=0,fwParticles=[],fwRockets=[],fwStart=0,fwLastBurst=0,fwW=0,fwH=0,fwLastTime=0;
+ const fwColors=['#ff3ca9','#63faff','#ffd86b','#b68bff','#71ffb8','#ffffff','#ff744f'];
+ function resetFireworks(){
+  cancelAnimationFrame(fwFrame);fwFrame=0;fwParticles=[];fwRockets=[];
+  fwctx.clearRect(0,0,fwW,fwH);victoryBanner.classList.remove('visible');
+ }
+ function launchMazeFireworks(){
+  resetFireworks();
+  victoryBanner.classList.add('visible');
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  const ratio=Math.min(window.devicePixelRatio||1,2);
+  fwW=window.innerWidth;fwH=window.innerHeight;
+  fireworksCanvas.width=Math.round(fwW*ratio);fireworksCanvas.height=Math.round(fwH*ratio);
+  fwctx.setTransform(ratio,0,0,ratio,0,0);
+  fwStart=performance.now();fwLastTime=fwStart;fwLastBurst=fwStart;
+  function explode(x,y,large=false){
+   const color=fwColors[Math.floor(Math.random()*fwColors.length)];
+   const count=large?125:85;
+   for(let i=0;i<count;i++){
+    const a=(i/count)*Math.PI*2+(Math.random()-.5)*.09;
+    const speed=(large?2.7:1.8)+Math.random()*(large?4.8:3.8);
+    fwParticles.push({x,y,px:x,py:y,vx:Math.cos(a)*speed,vy:Math.sin(a)*speed,
+     life:1,decay:.008+Math.random()*.009,color:i%7===0?'#fff':color,r:.9+Math.random()*2.1,gravity:.038,drag:.988,kind:'spark'});
+   }
+   // A bright expanding ring adds a cinematic shockwave.
+   fwParticles.push({x,y,life:1,decay:.025,color,r:2,kind:'ring',radius:3});
+   for(let i=0;i<26;i++)fwParticles.push({x:x+(Math.random()-.5)*80,y:y+(Math.random()-.5)*45,
+    px:x,py:y,vx:(Math.random()-.5)*4,vy:(Math.random()-.5)*5,life:1,
+    decay:.009+Math.random()*.008,color:fwColors[i%fwColors.length],r:3+Math.random()*3,
+    gravity:.045,drag:.995,kind:'confetti',angle:Math.random()*6});
+  }
+  function rocket(){
+   const x=fwW*(.1+Math.random()*.8),targetY=fwH*(.12+Math.random()*.38);
+   fwRockets.push({x,y:fwH+10,px:x,py:fwH+10,targetY,vy:-(11+Math.random()*4),color:fwColors[Math.floor(Math.random()*fwColors.length)]});
+  }
+  rocket();rocket();rocket();
+  function animate(now){
+   const dt=Math.min((now-fwLastTime)/16.67,2);fwLastTime=now;
+   const elapsed=now-fwStart;
+   fwctx.clearRect(0,0,fwW,fwH);
+   if(elapsed<4700&&now-fwLastBurst>280){rocket();if(Math.random()>.55)rocket();fwLastBurst=now;}
+   fwRockets=fwRockets.filter(r=>{
+    r.px=r.x;r.py=r.y;r.y+=r.vy*dt;
+    fwctx.save();fwctx.strokeStyle=r.color;fwctx.lineWidth=3;fwctx.shadowColor=r.color;fwctx.shadowBlur=18;
+    fwctx.beginPath();fwctx.moveTo(r.x,r.y+28);fwctx.lineTo(r.x,r.y);fwctx.stroke();fwctx.restore();
+    if(r.y<=r.targetY){explode(r.x,r.y,Math.random()>.45);return false}return true;
+   });
+   fwParticles=fwParticles.filter(pt=>pt.life>0);
+   fwParticles.forEach(pt=>{
+    pt.life-=pt.decay*dt;
+    fwctx.save();fwctx.globalAlpha=Math.max(0,pt.life);
+    fwctx.strokeStyle=pt.color;fwctx.fillStyle=pt.color;fwctx.shadowColor=pt.color;
+    if(pt.kind==='ring'){
+     pt.radius+=6*dt;fwctx.lineWidth=2.5*pt.life;fwctx.shadowBlur=14;
+     fwctx.beginPath();fwctx.arc(pt.x,pt.y,pt.radius,0,Math.PI*2);fwctx.stroke();
+    }else{
+     pt.px=pt.x;pt.py=pt.y;pt.x+=pt.vx*dt;pt.y+=pt.vy*dt;
+     pt.vx*=Math.pow(pt.drag,dt);pt.vy+=pt.gravity*dt;
+     if(pt.kind==='confetti'){
+      pt.angle+=.1*dt;fwctx.translate(pt.x,pt.y);fwctx.rotate(pt.angle);
+      fwctx.fillRect(-pt.r/2,-pt.r/2,pt.r*1.8,pt.r*.9);
+     }else{
+      fwctx.lineWidth=pt.r*pt.life+0.6;fwctx.lineCap='round';fwctx.shadowBlur=12;
+      fwctx.beginPath();fwctx.moveTo(pt.px,pt.py);fwctx.lineTo(pt.x,pt.y);fwctx.stroke();
+     }
+    }fwctx.restore();
+   });
+   if(elapsed<6900&&(fwParticles.length||fwRockets.length||elapsed<4700))fwFrame=requestAnimationFrame(animate);
+   else{fwctx.clearRect(0,0,fwW,fwH);fwFrame=0;}
+  }
+  fwFrame=requestAnimationFrame(animate);
+  setTimeout(()=>victoryBanner.classList.remove('visible'),5000);
+ }
+ let x=1,y=1,moves=0,won=false;const goal=[9,9];
+ function render(){
+ grid.replaceChildren();
+ layout.forEach((line,yy)=>[...line].forEach((cell,xx)=>{
+ const div=document.createElement('div');div.className='maze-cell'+(cell==='1'?' wall':'')+(xx===goal[0]&&yy===goal[1]?' goal':'')+(xx===x&&yy===y?' player':'');grid.appendChild(div);
+ }));
+ }
+ function move(dx,dy){
+ if(won)return;const nx=x+dx,ny=y+dy;
+ if(!layout[ny]||layout[ny][nx]!=='0')return;
+ x=nx;y=ny;moves++;render();
+ if(x===goal[0]&&y===goal[1]){won=true;status.textContent='🎆 MISSION COMPLETE ! '+moves+' déplacements. Bravo ! 🎆';launchMazeFireworks()}
+ else status.textContent='Position '+x+','+y+' · '+moves+' déplacements';
+ }
+ document.querySelectorAll('[data-move]').forEach(b=>b.addEventListener('click',()=>{
+ const d={up:[0,-1],down:[0,1],left:[-1,0],right:[1,0]}[b.dataset.move];move(...d);
+ }));
+ document.getElementById('maze-reset').addEventListener('click',()=>{resetFireworks();x=1;y=1;moves=0;won=false;status.textContent='Nouvelle partie. Atteins la case cyan.';render()});
+ document.addEventListener('keydown',e=>{
+ if(['INPUT','TEXTAREA'].includes(document.activeElement.tagName)||document.getElementById('modal').classList.contains('active'))return;
+ const d={ArrowUp:[0,-1],ArrowDown:[0,1],ArrowLeft:[-1,0],ArrowRight:[1,0],z:[0,-1],q:[-1,0],s:[0,1],d:[1,0]}[e.key];
+ if(d&&document.getElementById('arcade').getBoundingClientRect().top<innerHeight&&document.getElementById('arcade').getBoundingClientRect().bottom>0){e.preventDefault();move(...d)}
+ });render();
+})();
+(function(){
+ const nodes=[
+ {name:'Python',x:310,y:160,detail:'Pandas, NumPy, scikit-learn, scripts et automatisation.',projects:'Phishing Detector · SignaVision'},
+ {name:'Data & AI',x:150,y:80,detail:'Machine Learning, classification, interprétabilité SHAP.',projects:'Phishing Detector'},
+ {name:'Web',x:480,y:80,detail:'HTML, CSS, JavaScript, PHP orienté objet.',projects:'Maison Rose · API Insight X'},
+ {name:'SQL',x:480,y:235,detail:'PostgreSQL, MariaDB, MySQL, SQL procédural.',projects:'Maison Rose · API Insight X'},
+ {name:'C++',x:155,y:245,detail:'Algorithmes de parcours BFS et DFS.',projects:'Maze Bloom'},
+ {name:'Vision',x:310,y:45,detail:'OpenCV, NumPy, vision par ordinateur.',projects:'SignaVision'},
+ {name:'Git',x:315,y:280,detail:'GitHub, gestion de versions, publication de projets.',projects:'Tous les projets'}
+ ];
+ const svg=document.getElementById('network-svg'),details=document.getElementById('network-details');
+ const ns='http://www.w3.org/2000/svg';
+ function el(tag,attrs){const e=document.createElementNS(ns,tag);Object.entries(attrs).forEach(([k,v])=>e.setAttribute(k,v));return e}
+ nodes.slice(1).forEach(n=>svg.appendChild(el('line',{x1:310,y1:160,x2:n.x,y2:n.y})));
+ nodes.forEach((n,i)=>{
+ const g=el('g',{role:'button',tabindex:'0','aria-label':'Explorer '+n.name});
+ g.appendChild(el('circle',{cx:n.x,cy:n.y,r:i===0?35:29}));
+ const t=el('text',{x:n.x,y:n.y+4});t.textContent=n.name;g.appendChild(t);
+ const activate=()=>{svg.querySelectorAll('g').forEach(a=>a.classList.remove('active'));g.classList.add('active');details.replaceChildren();const strong=document.createElement('strong');strong.textContent=n.name;const p=document.createElement('p');p.textContent=n.detail;const p2=document.createElement('p');p2.textContent='Projets : '+n.projects;details.append(strong,p,p2)};
+ g.addEventListener('click',activate);g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();activate()}});svg.appendChild(g);
+ });svg.querySelector('g')?.dispatchEvent(new Event('click'));
+})();
+
+// V8 — district navigation; no external maps or API required.
+(function(){
+ const districts=[
+ {name:'SHINJUKU',jp:'新宿',project:'Phishing Detector',desc:'Un centre de cybersécurité où les modèles de Machine Learning détectent les sites suspects.'},
+ {name:'HARAJUKU',jp:'原宿',project:'Maison Rose',desc:'Une boutique numérique PHP et MariaDB, imaginée comme une vitrine néon dans Harajuku.'},
+ {name:'AKIHABARA',jp:'秋葉原',project:'Maze Bloom',desc:'Un labyrinthe C++ inspiré de l’univers des arcades, avec recherche de chemin BFS et DFS.'},
+ {name:'SHIBUYA',jp:'渋谷',project:'API Insight X',desc:'Un laboratoire de monitoring pour examiner les performances et réponses des APIs REST.'},
+ {name:'ODAIBA',jp:'お台場',project:'SignaVision',desc:'Une expérience de vision par ordinateur consacrée à la reconnaissance de panneaux routiers.'}
+ ];
+ let active=0;
+ const stations=[...document.querySelectorAll('.tokyo-map .station')];
+ function choose(i){
+ active=i;const d=districts[i];
+ stations.forEach((el,j)=>el.classList.toggle('selected',i===j));
+ document.getElementById('map-code').textContent='STATION '+String(i+1).padStart(2,'0')+' / '+d.jp;
+ document.getElementById('map-name').textContent=d.name;
+ document.getElementById('map-project').textContent=d.project;
+ document.getElementById('map-desc').textContent=d.desc;
+ }
+ stations.forEach((el,i)=>{
+ el.addEventListener('click',()=>choose(i));
+ el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();choose(i)}});
+ });
+ const portal=document.getElementById('district-portal');
+ const images=['bg-phishing.webp','bg-maison.webp','bg-maze.webp','bg-api.webp','bg-vision.webp'];
+ let lastTrigger=null;
+ function enterDistrict(i){
+  choose(i);lastTrigger=document.activeElement;const d=districts[i];
+  portal.style.setProperty('--portal-image',`url('assets/${images[i]}')`);
+  document.getElementById('portal-eyebrow').textContent='TOKYO // DISTRICT '+String(i+1).padStart(2,'0');
+  document.getElementById('portal-title').textContent=d.name;
+  document.getElementById('portal-project').textContent=d.project;
+  document.getElementById('portal-description').textContent=d.desc;
+  document.getElementById('portal-sign').textContent=d.jp;
+  document.getElementById('portal-index').textContent=String(i+1).padStart(2,'0')+' / 05 — SG.EXE';
+  portal.classList.remove('is-leaving');portal.classList.add('is-open');portal.setAttribute('aria-hidden','false');
+  document.body.classList.add('portal-locked');document.getElementById('portal-close').focus();
+ }
+ function exitDistrict(){
+  portal.classList.remove('is-open');portal.classList.remove('is-leaving');portal.setAttribute('aria-hidden','true');document.body.classList.remove('portal-locked');lastTrigger?.focus();
+ }
+ document.getElementById('map-explore').textContent='ENTRER DANS LE QUARTIER ↗';
+ document.getElementById('map-explore').addEventListener('click',()=>enterDistrict(active));
+ document.getElementById('portal-close').addEventListener('click',exitDistrict);
+ document.getElementById('portal-next').addEventListener('click',()=>enterDistrict((active+1)%districts.length));
+ document.getElementById('portal-open-project').addEventListener('click',()=>{
+  const i=active;exitDistrict();const card=document.querySelector('.project[data-index="'+i+'"]');
+  if(card){card.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'center'});card.classList.add('map-highlight');setTimeout(()=>card.classList.remove('map-highlight'),1800)}
+ });
+ portal.addEventListener('click',e=>{if(e.target===portal)exitDistrict()});
+ document.addEventListener('keydown',e=>{
+  if(!portal.classList.contains('is-open'))return;
+  if(e.key==='Escape'){e.preventDefault();exitDistrict()}
+  if(e.key==='Tab'){
+   const buttons=[...portal.querySelectorAll('button')];const first=buttons[0],last=buttons[buttons.length-1];
+   if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}
+   else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}
+  }
+ });
+})();
+
+// V14: mobile navigation and small-screen interaction safeguards.
+(function(){
+ const toggle=document.getElementById('mobile-nav-toggle');
+ const nav=document.getElementById('site-navigation');
+ if(!toggle||!nav)return;
+ const close=()=>{nav.classList.remove('mobile-open');toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','Ouvrir le menu');toggle.textContent='☰'};
+ toggle.addEventListener('click',()=>{
+  const open=!nav.classList.contains('mobile-open');
+  nav.classList.toggle('mobile-open',open);
+  toggle.setAttribute('aria-expanded',String(open));
+  toggle.setAttribute('aria-label',open?'Fermer le menu':'Ouvrir le menu');
+  toggle.textContent=open?'✕':'☰';
+ });
+ nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',close));
+ document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+ window.addEventListener('resize',()=>{if(innerWidth>760)close()},{passive:true});
+})();
+
+// V15 — accessible collapsible hero icon
+(function(){
+ const fold=document.getElementById('hero-fold');
+ const button=document.getElementById('hero-fold-trigger');
+ const panel=document.getElementById('hero-fold-panel');
+ if(!fold||!button||!panel)return;
+ function setOpen(open){fold.classList.toggle('is-open',open);button.setAttribute('aria-expanded',String(open));button.setAttribute('aria-label',open?'Replier la présentation':'Déplier la présentation');panel.inert=!open;}
+ button.addEventListener('click',()=>setOpen(!fold.classList.contains('is-open')));
+ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&fold.classList.contains('is-open')){setOpen(false);button.focus();}});
+ panel.querySelector('.fold-link').addEventListener('click',()=>setOpen(false));
+})();
+</script>
+</body></html>
+
